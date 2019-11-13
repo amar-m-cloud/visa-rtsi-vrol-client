@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum ProvidingPaymentProofOtherType {
 
     A,
@@ -19,6 +21,7 @@ public enum ProvidingPaymentProofOtherType {
     S,
     O;
 
+	@JsonValue
     public String value() {
         return name();
     }

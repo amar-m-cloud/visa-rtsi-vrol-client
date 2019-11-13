@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum DisputeDueToType {
 
     CR,
@@ -23,6 +25,7 @@ public enum DisputeDueToType {
     CL,
     TC;
 
+	@JsonValue
     public String value() {
         return name();
     }

@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum MerchandiseOrServicesType {
 
     MERCHANDISE("Merchandise"),
@@ -19,6 +21,7 @@ public enum MerchandiseOrServicesType {
         value = v;
     }
 
+    @JsonValue
     public String value() {
         return value;
     }

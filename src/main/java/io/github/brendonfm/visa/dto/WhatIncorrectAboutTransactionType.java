@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum WhatIncorrectAboutTransactionType {
 
     D,
@@ -19,6 +21,7 @@ public enum WhatIncorrectAboutTransactionType {
     LP,
     P;
 
+	@JsonValue
     public String value() {
         return name();
     }
