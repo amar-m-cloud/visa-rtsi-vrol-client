@@ -11,188 +11,80 @@ package io.github.brendonfm.visa.dto;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-/**
- * <p>Java class for DisputeProcessErrorType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeProcessErrorType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="WhatIncorrectAboutTransaction" type="{http://www.visa.com/ROLSI}WhatIncorrectAboutTransactionType" minOccurs="0"/>
- *         &lt;element name="AccountStatus" type="{http://www.visa.com/ROLSI}AccountStatusType" minOccurs="0"/>
- *         &lt;element name="CorrectCurrency" minOccurs="0">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}integer">
- *               &lt;totalDigits value="3"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="RolTransactionId" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="IncorrectTransactionId" type="{http://www.visa.com/ROLSI}TranIDType" minOccurs="0"/>
- *         &lt;element name="DuplicateTranId" type="{http://www.visa.com/ROLSI}TranIDType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="TransactionCodeIncorrect" type="{http://www.visa.com/ROLSI}TransactionCodeIncorrectType" minOccurs="0"/>
- *         &lt;element name="IssuerMasterFileAccountNumberInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CardholderReceiptAccountNumber" type="{http://www.visa.com/ROLSI}AcctNumType" minOccurs="0"/>
- *         &lt;element name="ChipCardContainValidCryptogramInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ExplainWhyCreditRefundProcessedInError" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="ReceiptAccountNumberMatchInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="PrepaymentPartialTransactionInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CardholderReceiptAmt" type="{http://www.visa.com/ROLSI}AmountType" minOccurs="0"/>
- *         &lt;element name="MerchantDisputePriceDiffInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="BothTransactionsOnSameAcctNumberInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="IssuerOrCardholderOtherAcctWithDiffVisaCardInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="IssuerEvidenceMerchantPassedOnFundsInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="PrepaymentBalanceNotPaidInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ProvidingPaymentProofOtherMeans" type="{http://www.visa.com/ROLSI}ProvidingPaymentProofOtherType" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ProcessingErrorOtherExplanation" minOccurs="0"/>
- *         &lt;element name="IncorrectCurrencyReason" type="{http://www.visa.com/ROLSI}IncorrectCurrencyReasonType" minOccurs="0"/>
- *         &lt;element name="AuthorizationRequestDeclinedValidDataInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="ExplainWhyValidDataInclusionReason" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderDidNotAgreeDCC" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CardholderAttemptToResolve" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="AttemptToResolveProhLocalLaw" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="DetailsOfLocalLaw" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="OtherTranInvolveDiffMerchantInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="OtherTranSameMerchantInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="TransactionID" type="{http://www.visa.com/ROLSI}TranIDType" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ARN" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeProcessErrorType", propOrder = {
-    "whatIncorrectAboutTransaction",
-    "accountStatus",
-    "correctCurrency",
-    "rolTransactionId",
-    "incorrectTransactionId",
-    "duplicateTranId",
-    "transactionCodeIncorrect",
-    "issuerMasterFileAccountNumberInd",
-    "cardholderReceiptAccountNumber",
-    "chipCardContainValidCryptogramInd",
-    "explainWhyCreditRefundProcessedInError",
-    "receiptAccountNumberMatchInd",
-    "prepaymentPartialTransactionInd",
-    "cardholderReceiptAmt",
-    "merchantDisputePriceDiffInd",
-    "bothTransactionsOnSameAcctNumberInd",
-    "issuerOrCardholderOtherAcctWithDiffVisaCardInd",
-    "issuerEvidenceMerchantPassedOnFundsInd",
-    "prepaymentBalanceNotPaidInd",
-    "providingPaymentProofOtherMeans",
-    "processingErrorOtherExplanation",
-    "incorrectCurrencyReason",
-    "authorizationRequestDeclinedValidDataInd",
-    "explainWhyValidDataInclusionReason",
-    "cardholderDidNotAgreeDCC",
-    "cardholderAttemptToResolve",
-    "attemptToResolveProhLocalLaw",
-    "detailsOfLocalLaw",
-    "otherTranInvolveDiffMerchantInd",
-    "otherTranSameMerchantInd",
-    "transactionID",
-    "arn"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeProcessErrorType {
 
-    @XmlElement(name = "WhatIncorrectAboutTransaction")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("WhatIncorrectAboutTransaction")
     protected WhatIncorrectAboutTransactionType whatIncorrectAboutTransaction;
-    @XmlElement(name = "AccountStatus")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("AccountStatus")
     protected AccountStatusType accountStatus;
-    @XmlElement(name = "CorrectCurrency")
+    @JsonProperty("CorrectCurrency")
     protected BigInteger correctCurrency;
-    @XmlElement(name = "RolTransactionId", type = Long.class)
+    @JsonProperty("RolTransactionId")
     protected List<Long> rolTransactionId;
-    @XmlElement(name = "IncorrectTransactionId")
+    @JsonProperty("IncorrectTransactionId")
     protected String incorrectTransactionId;
-    @XmlElement(name = "DuplicateTranId")
+    @JsonProperty("DuplicateTranId")
     protected List<String> duplicateTranId;
-    @XmlElement(name = "TransactionCodeIncorrect")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("TransactionCodeIncorrect")
     protected TransactionCodeIncorrectType transactionCodeIncorrect;
-    @XmlElement(name = "IssuerMasterFileAccountNumberInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("IssuerMasterFileAccountNumberInd")
     protected YNType issuerMasterFileAccountNumberInd;
-    @XmlElement(name = "CardholderReceiptAccountNumber")
+    @JsonProperty("CardholderReceiptAccountNumber")
     protected String cardholderReceiptAccountNumber;
-    @XmlElement(name = "ChipCardContainValidCryptogramInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("ChipCardContainValidCryptogramInd")
     protected YNType chipCardContainValidCryptogramInd;
-    @XmlElement(name = "ExplainWhyCreditRefundProcessedInError")
+    @JsonProperty("ExplainWhyCreditRefundProcessedInError")
     protected String explainWhyCreditRefundProcessedInError;
-    @XmlElement(name = "ReceiptAccountNumberMatchInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("ReceiptAccountNumberMatchInd")
     protected YNType receiptAccountNumberMatchInd;
-    @XmlElement(name = "PrepaymentPartialTransactionInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("PrepaymentPartialTransactionInd")
     protected YNType prepaymentPartialTransactionInd;
-    @XmlElement(name = "CardholderReceiptAmt")
+    @JsonProperty("CardholderReceiptAmt")
     protected AmountType cardholderReceiptAmt;
-    @XmlElement(name = "MerchantDisputePriceDiffInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("MerchantDisputePriceDiffInd")
     protected YNType merchantDisputePriceDiffInd;
-    @XmlElement(name = "BothTransactionsOnSameAcctNumberInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("BothTransactionsOnSameAcctNumberInd")
     protected YNType bothTransactionsOnSameAcctNumberInd;
-    @XmlElement(name = "IssuerOrCardholderOtherAcctWithDiffVisaCardInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("IssuerOrCardholderOtherAcctWithDiffVisaCardInd")
     protected YNType issuerOrCardholderOtherAcctWithDiffVisaCardInd;
-    @XmlElement(name = "IssuerEvidenceMerchantPassedOnFundsInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("IssuerEvidenceMerchantPassedOnFundsInd")
     protected YNType issuerEvidenceMerchantPassedOnFundsInd;
-    @XmlElement(name = "PrepaymentBalanceNotPaidInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("PrepaymentBalanceNotPaidInd")
     protected YNType prepaymentBalanceNotPaidInd;
-    @XmlElement(name = "ProvidingPaymentProofOtherMeans")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("ProvidingPaymentProofOtherMeans")
     protected ProvidingPaymentProofOtherType providingPaymentProofOtherMeans;
-    @XmlElement(name = "ProcessingErrorOtherExplanation")
+    @JsonProperty("ProcessingErrorOtherExplanation")
     protected String processingErrorOtherExplanation;
-    @XmlElement(name = "IncorrectCurrencyReason")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("IncorrectCurrencyReason")
     protected IncorrectCurrencyReasonType incorrectCurrencyReason;
-    @XmlElement(name = "AuthorizationRequestDeclinedValidDataInd")
+    @JsonProperty("AuthorizationRequestDeclinedValidDataInd")
     protected Boolean authorizationRequestDeclinedValidDataInd;
-    @XmlElement(name = "ExplainWhyValidDataInclusionReason")
+    @JsonProperty("ExplainWhyValidDataInclusionReason")
     protected String explainWhyValidDataInclusionReason;
-    @XmlElement(name = "CardholderDidNotAgreeDCC")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("CardholderDidNotAgreeDCC")
     protected YNType cardholderDidNotAgreeDCC;
-    @XmlElement(name = "CardholderAttemptToResolve")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("CardholderAttemptToResolve")
     protected YNType cardholderAttemptToResolve;
-    @XmlElement(name = "AttemptToResolveProhLocalLaw")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("AttemptToResolveProhLocalLaw")
     protected YNType attemptToResolveProhLocalLaw;
-    @XmlElement(name = "DetailsOfLocalLaw")
+    @JsonProperty("DetailsOfLocalLaw")
     protected String detailsOfLocalLaw;
-    @XmlElement(name = "OtherTranInvolveDiffMerchantInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("OtherTranInvolveDiffMerchantInd")
     protected YNType otherTranInvolveDiffMerchantInd;
-    @XmlElement(name = "OtherTranSameMerchantInd")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("OtherTranSameMerchantInd")
     protected YNType otherTranSameMerchantInd;
-    @XmlElement(name = "TransactionID")
+    @JsonProperty("TransactionID")
     protected String transactionID;
-    @XmlElement(name = "ARN")
+    @JsonProperty("ARN")
     protected String arn;
 
     /**

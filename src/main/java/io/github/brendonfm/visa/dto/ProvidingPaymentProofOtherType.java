@@ -8,33 +8,6 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
-
-
-/**
- * <p>Java class for ProvidingPaymentProofOtherType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="ProvidingPaymentProofOtherType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="A"/>
- *     &lt;enumeration value="T"/>
- *     &lt;enumeration value="C"/>
- *     &lt;enumeration value="F"/>
- *     &lt;enumeration value="V"/>
- *     &lt;enumeration value="E"/>
- *     &lt;enumeration value="S"/>
- *     &lt;enumeration value="O"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "ProvidingPaymentProofOtherType")
-@XmlEnum
 public enum ProvidingPaymentProofOtherType {
 
     A,

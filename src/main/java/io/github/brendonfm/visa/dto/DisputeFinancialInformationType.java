@@ -8,86 +8,48 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Date;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * <p>Java class for DisputeFinancialInformationType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeFinancialInformationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="VROLFinancialSentInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}VROLFinancialID" minOccurs="0"/>
- *         &lt;element name="FinancialTransactionType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="FinancialAmt" type="{http://www.visa.com/ROLSI}AmountType" minOccurs="0"/>
- *         &lt;element name="DisputeCategory" type="{http://www.visa.com/ROLSI}DisputeCategoryType" minOccurs="0"/>
- *         &lt;element name="DisputeCondition" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DisputeId" minOccurs="0"/>
- *         &lt;element name="VROLBundleCaseNumber" type="{http://www.visa.com/ROLSI}VisaCaseNumberType" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}TransactionID" minOccurs="0"/>
- *         &lt;element name="IssuerCaseNumber" type="{http://www.visa.com/ROLSI}MemberCaseNumberType" minOccurs="0"/>
- *         &lt;element name="AcquirerCaseNumber" type="{http://www.visa.com/ROLSI}MemberCaseNumberType" minOccurs="0"/>
- *         &lt;element name="OpposerExpectedRespDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeFinancialInformationType", propOrder = {
-    "vrolFinancialSentInd",
-    "vrolFinancialID",
-    "financialTransactionType",
-    "financialAmt",
-    "disputeCategory",
-    "disputeCondition",
-    "disputeId",
-    "vrolBundleCaseNumber",
-    "transactionID",
-    "issuerCaseNumber",
-    "acquirerCaseNumber",
-    "opposerExpectedRespDate"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeFinancialInformationType {
 
-    @XmlElement(name = "VROLFinancialSentInd")
+    @JsonProperty("VROLFinancialSentInd")
     protected Boolean vrolFinancialSentInd;
-    @XmlElement(name = "VROLFinancialID")
+    @JsonProperty("VROLFinancialID")
     protected String vrolFinancialID;
-    @XmlElement(name = "FinancialTransactionType")
+    @JsonProperty("FinancialTransactionType")
     protected String financialTransactionType;
-    @XmlElement(name = "FinancialAmt")
+    @JsonProperty("FinancialAmt")
     protected AmountType financialAmt;
-    @XmlElement(name = "DisputeCategory")
+    @JsonProperty("DisputeCategory")
     protected DisputeCategoryType disputeCategory;
-    @XmlElement(name = "DisputeCondition")
+    @JsonProperty("DisputeCondition")
     protected String disputeCondition;
-    @XmlElement(name = "DisputeId")
+    @JsonProperty("DisputeId")
     protected Long disputeId;
-    @XmlElement(name = "VROLBundleCaseNumber")
+    @JsonProperty("VROLBundleCaseNumber")
     protected Long vrolBundleCaseNumber;
-    @XmlElement(name = "TransactionID")
+    @JsonProperty("TransactionID")
     protected String transactionID;
-    @XmlElement(name = "IssuerCaseNumber")
+    @JsonProperty("IssuerCaseNumber")
     protected String issuerCaseNumber;
-    @XmlElement(name = "AcquirerCaseNumber")
+    @JsonProperty("AcquirerCaseNumber")
     protected String acquirerCaseNumber;
-    @XmlElement(name = "OpposerExpectedRespDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar opposerExpectedRespDate;
+    @JsonProperty("OpposerExpectedRespDate")
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date opposerExpectedRespDate;
 
     /**
      * Gets the value of the vrolFinancialSentInd property.
@@ -361,7 +323,7 @@ public class DisputeFinancialInformationType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getOpposerExpectedRespDate() {
+    public Date getOpposerExpectedRespDate() {
         return opposerExpectedRespDate;
     }
 
@@ -373,7 +335,7 @@ public class DisputeFinancialInformationType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setOpposerExpectedRespDate(XMLGregorianCalendar value) {
+    public void setOpposerExpectedRespDate(Date value) {
         this.opposerExpectedRespDate = value;
     }
 

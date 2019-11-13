@@ -8,56 +8,24 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
+public class DisputeCardholderInfoType extends CardholderDisputeInfoType {
 
-/**
- * <p>Java class for DisputeCardholderInfoType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeCardholderInfoType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.visa.com/ROLSI}CardholderDisputeInfoType">
- *       &lt;sequence>
- *         &lt;element name="CardholderPrefix" type="{http://www.visa.com/ROLSI}CardholderPrefixType" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}CardholderLastName" minOccurs="0"/>
- *         &lt;element name="CardholderMiddleInitial" type="{http://www.visa.com/ROLSI}CardHolderInitialType" minOccurs="0"/>
- *         &lt;element name="Address2" type="{http://www.visa.com/ROLSI}CardHolderAddressType" minOccurs="0"/>
- *         &lt;element name="CardholderSuffix" type="{http://www.visa.com/ROLSI}CardHolderSuffixType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeCardholderInfoType", propOrder = {
-    "cardholderPrefix",
-    "cardholderLastName",
-    "cardholderMiddleInitial",
-    "address2",
-    "cardholderSuffix"
-})
-public class DisputeCardholderInfoType
-    extends CardholderDisputeInfoType
-{
-
-    @XmlElement(name = "CardholderPrefix")
+    @JsonProperty("CardholderPrefix")
     protected String cardholderPrefix;
-    @XmlElement(name = "CardholderLastName")
+    @JsonProperty("CardholderLastName")
     protected String cardholderLastName;
-    @XmlElement(name = "CardholderMiddleInitial")
+    @JsonProperty("CardholderMiddleInitial")
     protected String cardholderMiddleInitial;
-    @XmlElement(name = "Address2")
+    @JsonProperty("Address2")
     protected String address2;
-    @XmlElement(name = "CardholderSuffix")
+    @JsonProperty("CardholderSuffix")
     protected String cardholderSuffix;
 
     /**

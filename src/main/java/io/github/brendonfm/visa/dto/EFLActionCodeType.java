@@ -8,49 +8,16 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
-
-
-/**
- * <p>Java class for EFLActionCodeType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="EFLActionCodeType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="EFL04"/>
- *     &lt;enumeration value="EFL05"/>
- *     &lt;enumeration value="EFL07"/>
- *     &lt;enumeration value="EFL14"/>
- *     &lt;enumeration value="EFL41"/>
- *     &lt;enumeration value="EFL43"/>
- *     &lt;enumeration value="EFL54"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "EFLActionCodeType")
-@XmlEnum
 public enum EFLActionCodeType {
 
-    @XmlEnumValue("EFL04")
     EFL_04("EFL04"),
-    @XmlEnumValue("EFL05")
     EFL_05("EFL05"),
-    @XmlEnumValue("EFL07")
     EFL_07("EFL07"),
-    @XmlEnumValue("EFL14")
     EFL_14("EFL14"),
-    @XmlEnumValue("EFL41")
     EFL_41("EFL41"),
-    @XmlEnumValue("EFL43")
     EFL_43("EFL43"),
-    @XmlEnumValue("EFL54")
     EFL_54("EFL54");
+	
     private final String value;
 
     EFLActionCodeType(String v) {

@@ -9,50 +9,31 @@
 package io.github.brendonfm.visa.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * <p>Java class for DisputeAuthorizationType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeAuthorizationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="EFLDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="Region" type="{http://www.visa.com/ROLSI}RegionEFLType" maxOccurs="6" minOccurs="0"/>
- *         &lt;element name="ExplanationOfAuthorizationsPresented" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeAuthorizationType", propOrder = {
-    "eflDate",
-    "region",
-    "explanationOfAuthorizationsPresented"
-})
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeAuthorizationType {
 
-    @XmlElement(name = "EFLDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar eflDate;
-    @XmlElement(name = "Region")
+    @JsonProperty("EFLDate")
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date eflDate;
+    @JsonProperty("Region")
     protected List<String> region;
-    @XmlElement(name = "ExplanationOfAuthorizationsPresented")
+    @JsonProperty("ExplanationOfAuthorizationsPresented")
     protected String explanationOfAuthorizationsPresented;
 
     /**
@@ -63,7 +44,7 @@ public class DisputeAuthorizationType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getEFLDate() {
+    public Date getEFLDate() {
         return eflDate;
     }
 
@@ -75,7 +56,7 @@ public class DisputeAuthorizationType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setEFLDate(XMLGregorianCalendar value) {
+    public void setEFLDate(Date value) {
         this.eflDate = value;
     }
 

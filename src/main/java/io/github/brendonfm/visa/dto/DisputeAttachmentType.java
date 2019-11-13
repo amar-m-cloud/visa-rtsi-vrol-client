@@ -9,62 +9,25 @@
 package io.github.brendonfm.visa.dto;
 
 import javax.activation.DataHandler;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlMimeType;
-import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * <p>Java class for DisputeAttachmentType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeAttachmentType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ContentType" minOccurs="0"/>
- *         &lt;element name="Comment" minOccurs="0">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;maxLength value="250"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ImageData" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DocType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeAttachmentType", propOrder = {
-    "contentType",
-    "comment",
-    "imageData",
-    "docType"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeAttachmentType {
 
-    @XmlElement(name = "ContentType")
+    @JsonProperty("ContentType")
     protected String contentType;
-    @XmlElement(name = "Comment")
+    @JsonProperty("Comment")
     protected String comment;
-    @XmlElement(name = "ImageData")
-    @XmlMimeType("*/*")
+    @JsonProperty("ImageData")
     protected DataHandler imageData;
-    @XmlElement(name = "DocType")
+    @JsonProperty("DocType")
     protected String docType;
-    @XmlAttribute(name = "id", required = true)
+    @JsonProperty("id")
     protected String id;
 
     /**

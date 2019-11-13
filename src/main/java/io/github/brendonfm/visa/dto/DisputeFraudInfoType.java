@@ -8,73 +8,36 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Date;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * <p>Java class for DisputeFraudInfoType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeFraudInfoType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="MailDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="MailCity" minOccurs="0">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;maxLength value="28"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="MailStateCode" minOccurs="0">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;maxLength value="2"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="ValidFrom" type="{http://www.visa.com/ROLSI}ExpiryDateType" minOccurs="0"/>
- *         &lt;element name="MailPostalCode" type="{http://www.visa.com/ROLSI}PostalCodeType" minOccurs="0"/>
- *         &lt;element name="FraudType" type="{http://www.visa.com/ROLSI}FraudType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeFraudInfoType", propOrder = {
-    "mailDate",
-    "mailCity",
-    "mailStateCode",
-    "validFrom",
-    "mailPostalCode",
-    "fraudType"
-})
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeFraudInfoType {
 
-    @XmlElement(name = "MailDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar mailDate;
-    @XmlElement(name = "MailCity")
+    @JsonProperty("MailDate")
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date mailDate;
+    @JsonProperty("MailCity")
     protected String mailCity;
-    @XmlElement(name = "MailStateCode")
+    @JsonProperty("MailStateCode")
     protected String mailStateCode;
-    @XmlElement(name = "ValidFrom")
+    @JsonProperty("ValidFrom")
     protected String validFrom;
-    @XmlElement(name = "MailPostalCode")
+    @JsonProperty("MailPostalCode")
     protected String mailPostalCode;
-    @XmlElement(name = "FraudType")
+    @JsonProperty("FraudType")
     protected String fraudType;
 
     /**
@@ -85,7 +48,7 @@ public class DisputeFraudInfoType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getMailDate() {
+    public Date getMailDate() {
         return mailDate;
     }
 
@@ -97,7 +60,7 @@ public class DisputeFraudInfoType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setMailDate(XMLGregorianCalendar value) {
+    public void setMailDate(Date value) {
         this.mailDate = value;
     }
 

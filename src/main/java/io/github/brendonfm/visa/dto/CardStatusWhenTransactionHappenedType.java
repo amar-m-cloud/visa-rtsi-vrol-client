@@ -8,30 +8,6 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
-
-
-/**
- * <p>Java class for CardStatusWhenTransactionHappenedType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="CardStatusWhenTransactionHappenedType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="L"/>
- *     &lt;enumeration value="S"/>
- *     &lt;enumeration value="C"/>
- *     &lt;enumeration value="N"/>
- *     &lt;enumeration value="O"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "CardStatusWhenTransactionHappenedType")
-@XmlEnum
 public enum CardStatusWhenTransactionHappenedType {
 
     L,

@@ -8,33 +8,6 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
-
-
-/**
- * <p>Java class for WhatIncorrectAboutTransactionType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="WhatIncorrectAboutTransactionType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="D"/>
- *     &lt;enumeration value="IAN"/>
- *     &lt;enumeration value="IA"/>
- *     &lt;enumeration value="IC"/>
- *     &lt;enumeration value="IT"/>
- *     &lt;enumeration value="ID"/>
- *     &lt;enumeration value="LP"/>
- *     &lt;enumeration value="P"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "WhatIncorrectAboutTransactionType")
-@XmlEnum
 public enum WhatIncorrectAboutTransactionType {
 
     D,

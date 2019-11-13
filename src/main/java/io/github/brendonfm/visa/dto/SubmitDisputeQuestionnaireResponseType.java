@@ -8,60 +8,27 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-/**
- * <p>Java class for SubmitDisputeQuestionnaireResponseType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubmitDisputeQuestionnaireResponseType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.visa.com/ROLSI}VisaCaseNumber" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DisputeId" minOccurs="0"/>
- *         &lt;element name="FraudReportID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="IsRdrInfoAvailable" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="DisputeFinancialInfo" type="{http://www.visa.com/ROLSI}DisputeFinancialInformationType" minOccurs="0"/>
- *         &lt;element name="DocIdList" type="{http://www.visa.com/ROLSI}DocIdListType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SubmitDisputeQuestionnaireResponseType", propOrder = {
-    "visaCaseNumber",
-    "disputeId",
-    "fraudReportID",
-    "isRdrInfoAvailable",
-    "disputeFinancialInfo",
-    "docIdList"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class SubmitDisputeQuestionnaireResponseType {
 
-    @XmlElement(name = "VisaCaseNumber")
+    @JsonProperty("VisaCaseNumber")
     protected Long visaCaseNumber;
-    @XmlElement(name = "DisputeId")
+    @JsonProperty("DisputeId")
     protected Long disputeId;
-    @XmlElement(name = "FraudReportID")
+    @JsonProperty("FraudReportID")
     protected Long fraudReportID;
-    @XmlElement(name = "IsRdrInfoAvailable")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("IsRdrInfoAvailable")
     protected YNType isRdrInfoAvailable;
-    @XmlElement(name = "DisputeFinancialInfo")
+    @JsonProperty("DisputeFinancialInfo")
     protected DisputeFinancialInformationType disputeFinancialInfo;
-    @XmlElement(name = "DocIdList")
+    @JsonProperty("DocIdList")
     protected DocIdListType docIdList;
 
     /**
