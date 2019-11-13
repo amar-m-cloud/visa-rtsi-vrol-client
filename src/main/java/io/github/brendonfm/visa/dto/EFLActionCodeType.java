@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum EFLActionCodeType {
 
     EFL_04("EFL04"),
@@ -24,6 +26,7 @@ public enum EFLActionCodeType {
         value = v;
     }
 
+    @JsonValue
     public String value() {
         return value;
     }

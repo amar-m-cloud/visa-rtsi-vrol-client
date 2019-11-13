@@ -8,11 +8,14 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum YNType {
 
     Y,
     N;
 
+	@JsonValue
     public String value() {
         return name();
     }

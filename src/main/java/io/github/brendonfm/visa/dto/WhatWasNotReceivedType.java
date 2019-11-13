@@ -8,12 +8,15 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum WhatWasNotReceivedType {
 
     M,
     S,
     C;
 
+	@JsonValue
     public String value() {
         return name();
     }

@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum AccountStatusType {
 
     AC,
@@ -15,6 +17,7 @@ public enum AccountStatusType {
     F,
     NF;
 
+	@JsonValue
     public String value() {
         return name();
     }

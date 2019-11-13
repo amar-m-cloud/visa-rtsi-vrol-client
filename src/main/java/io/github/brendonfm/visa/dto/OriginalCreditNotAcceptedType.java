@@ -8,11 +8,14 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum OriginalCreditNotAcceptedType {
 
     R,
     O;
 
+	@JsonValue
     public String value() {
         return name();
     }

@@ -8,12 +8,15 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum MerchantRefuseAdviseIndType {
 
     MRRA,
     MRRM,
     MICNRM;
 
+	@JsonValue
     public String value() {
         return name();
     }

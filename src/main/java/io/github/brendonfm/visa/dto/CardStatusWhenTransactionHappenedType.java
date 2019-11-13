@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum CardStatusWhenTransactionHappenedType {
 
     L,
@@ -16,6 +18,7 @@ public enum CardStatusWhenTransactionHappenedType {
     N,
     O;
 
+	@JsonValue
     public String value() {
         return name();
     }
