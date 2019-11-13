@@ -8,514 +8,306 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-/**
- * <p>Java class for ConsumerDisputesType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ConsumerDisputesType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="DisputeDueTo" type="{http://www.visa.com/ROLSI}DisputeDueToType" minOccurs="0"/>
- *         &lt;element name="RecurringTransactionInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="RelatedToInstallmentPaymentInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="AccountClosureDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="MerchandiseOrServices" type="{http://www.visa.com/ROLSI}MerchandiseOrServicesType" minOccurs="0"/>
- *         &lt;element name="CardholderReturnMerchandiseInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="MerchantRefuseAdvise" type="{http://www.visa.com/ROLSI}MerchantRefuseAdviseIndType" minOccurs="0"/>
- *         &lt;element name="WhatWasPurchased" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="ChReceivedOrExpectedMerchandise" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="MerchandiseReceivedDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="HowMerchandiseOrServiceMisrepresented" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="DisputeRelateToApprovedMerchantTypes" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="DidCardholderCancel" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CancellationDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="CancellationMethod" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderFirstNotifiedIssuerDisputeDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="CardholderAttemptToResolve" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="AttemptToResolveExplanation" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderDidNotAttemptResolveExplanation" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="DetailsOfLocalLaw" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderCancellationPolicyInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="NonPolicyCancellationExplanation" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="WhatWasMisrepresented" type="{http://www.visa.com/ROLSI}MerchandiseOrServicesType" minOccurs="0"/>
- *         &lt;element name="MostRecentContactDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ContactName" minOccurs="0"/>
- *         &lt;element name="ContactMethod" type="{http://www.visa.com/ROLSI}Name50Type" minOccurs="0"/>
- *         &lt;element name="MerchantResponse" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="ReturnMethod" type="{http://www.visa.com/ROLSI}ReturnMethodType" minOccurs="0"/>
- *         &lt;element name="ReturnAuthorizationNumber" type="{http://www.visa.com/ROLSI}Data25Type" minOccurs="0"/>
- *         &lt;element name="ShippingTrackingNumber" type="{http://www.visa.com/ROLSI}Data50Type" minOccurs="0"/>
- *         &lt;element name="PackageSignedBy" type="{http://www.visa.com/ROLSI}Data50Type" minOccurs="0"/>
- *         &lt;element name="DeliveryAddress" type="{http://www.visa.com/ROLSI}Data100Type" minOccurs="0"/>
- *         &lt;element name="MerchandiseReturnInstructionsInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="Instructions" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="WhatWasReserved" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderMerchantPreviousNegotiationEvidence" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ServiceType" type="{http://www.visa.com/ROLSI}ServiceTypeType" minOccurs="0"/>
- *         &lt;element name="SpokeWith" type="{http://www.visa.com/ROLSI}Data50Type" minOccurs="0"/>
- *         &lt;element name="CancellationPolicyProvidedInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="PolicyInfo" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CancellationConfirmationInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="MerchantBillInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CardholderReservationConfirmationInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="TimeshareDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="WhatWasOrdered" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderAdvisedMerchandiseCounterfeit" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="WhereIsMerchandiseLocated" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="OriginalCreditNotAcceptedInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="OriginalCreditNotAcceptedProhibitedLawInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="Explain" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CreditVoucherTransactionReceipt" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CreditVoucherOrTransactionReceiptDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="WhatWasNotReceived" type="{http://www.visa.com/ROLSI}WhatWasNotReceivedType" minOccurs="0"/>
- *         &lt;element name="DisputeRelateToQualityInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="DisputeInvolveBondingAuthorityInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="PurchasedInfo" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="ExpectedReceiptDateTime" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="DidCardholderCancelPriorExpectedDate" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CancellationContact" type="{http://www.visa.com/ROLSI}Data50Type" minOccurs="0"/>
- *         &lt;element name="BalanceNotPaidGoodsOrServices" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ExplainCardholderAttemptToResolve" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="MerchandiseDeliveredWrongLocation" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="LateDeliveryWrongLocation" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderAttemptReturnMerchandise" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="AttemptedReturnDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="DamagedOrDefectiveOrderInfo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="OrderDetailsNotAsDescribed" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="MerchantDescDoNotMatchMerchandiseOrServices" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="MerchandiseOrServicesDifferFromDescribedOnReceipt" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="Explanation" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="WhatWasNotDescribed" type="{http://www.visa.com/ROLSI}MerchandiseOrServicesType" minOccurs="0"/>
- *         &lt;element name="CardholderCancelServices" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="QualityIssueWith" type="{http://www.visa.com/ROLSI}MerchandiseOrServicesType" minOccurs="0"/>
- *         &lt;element name="PurchasedInfoAndQualityIssue" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="MerchandiseServiceReceivedDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="DidCardholderPayWorkRedone" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ExplainWhyWorkRedone" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="AttemptToResolveProhLocalLaw" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ReturnedMerchandiseReceivedDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="HowMerchandiseReturned" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="HowChAttemptReturnAndDispOfMerchandise" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="MerchandiseWasCounterfeitDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="InfoMerchandiseToBeCounterfeit" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="WhenNegotiationsBegin" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="ExplainPrevNegotiation" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="MerchantReceivedReturnedMerchandiseDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="MerchantFacilitiesWithdrawn" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="CardholderDeceased" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="DisputeRelateToOffpremisesDistanceSellInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="DisputeRelateToInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ContractDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="MerchantInLiquidationOrReceivershipInd" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ExplainAttemptToResolveWithBondAuth" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="BondAuthLetterOrAdviceDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="DateOfService" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="DescCounterfeitMerchandise" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="DescDispOfCounterfeitMerchandise" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element name="CardholderReturnedMerchandiseDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="MerchandiseIdentifiedAsCounterfeit" type="{http://www.visa.com/ROLSI}MerchandiseIdentifiedAsCounterfeitType" minOccurs="0"/>
- *         &lt;element name="OriginalCreditNotAccepted" type="{http://www.visa.com/ROLSI}OriginalCreditNotAcceptedType" minOccurs="0"/>
- *         &lt;element name="CreditVoucherTransactionReceiptDated" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ServiceReceivedDate" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element name="CertificationGuaranteedReservation" type="{http://www.visa.com/ROLSI}CertificationGuaranteedReservationType" minOccurs="0"/>
- *         &lt;element name="HowTermsOfContractNotHonoredByMerchant" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ConsumerDisputesType", propOrder = {
-    "disputeDueTo",
-    "recurringTransactionInd",
-    "relatedToInstallmentPaymentInd",
-    "accountClosureDate",
-    "merchandiseOrServices",
-    "cardholderReturnMerchandiseInd",
-    "merchantRefuseAdvise",
-    "whatWasPurchased",
-    "chReceivedOrExpectedMerchandise",
-    "merchandiseReceivedDate",
-    "howMerchandiseOrServiceMisrepresented",
-    "disputeRelateToApprovedMerchantTypes",
-    "didCardholderCancel",
-    "cancellationDate",
-    "cancellationMethod",
-    "cardholderFirstNotifiedIssuerDisputeDate",
-    "cardholderAttemptToResolve",
-    "attemptToResolveExplanation",
-    "cardholderDidNotAttemptResolveExplanation",
-    "detailsOfLocalLaw",
-    "cardholderCancellationPolicyInd",
-    "nonPolicyCancellationExplanation",
-    "whatWasMisrepresented",
-    "mostRecentContactDate",
-    "contactName",
-    "contactMethod",
-    "merchantResponse",
-    "returnMethod",
-    "returnAuthorizationNumber",
-    "shippingTrackingNumber",
-    "packageSignedBy",
-    "deliveryAddress",
-    "merchandiseReturnInstructionsInd",
-    "instructions",
-    "whatWasReserved",
-    "cardholderMerchantPreviousNegotiationEvidence",
-    "serviceType",
-    "spokeWith",
-    "cancellationPolicyProvidedInd",
-    "policyInfo",
-    "cancellationConfirmationInd",
-    "merchantBillInd",
-    "cardholderReservationConfirmationInd",
-    "timeshareDate",
-    "whatWasOrdered",
-    "cardholderAdvisedMerchandiseCounterfeit",
-    "whereIsMerchandiseLocated",
-    "originalCreditNotAcceptedInd",
-    "originalCreditNotAcceptedProhibitedLawInd",
-    "explain",
-    "creditVoucherTransactionReceipt",
-    "creditVoucherOrTransactionReceiptDate",
-    "whatWasNotReceived",
-    "disputeRelateToQualityInd",
-    "disputeInvolveBondingAuthorityInd",
-    "purchasedInfo",
-    "expectedReceiptDateTime",
-    "didCardholderCancelPriorExpectedDate",
-    "cancellationContact",
-    "balanceNotPaidGoodsOrServices",
-    "explainCardholderAttemptToResolve",
-    "merchandiseDeliveredWrongLocation",
-    "lateDeliveryWrongLocation",
-    "cardholderAttemptReturnMerchandise",
-    "attemptedReturnDate",
-    "damagedOrDefectiveOrderInfo",
-    "orderDetailsNotAsDescribed",
-    "merchantDescDoNotMatchMerchandiseOrServices",
-    "merchandiseOrServicesDifferFromDescribedOnReceipt",
-    "explanation",
-    "whatWasNotDescribed",
-    "cardholderCancelServices",
-    "qualityIssueWith",
-    "purchasedInfoAndQualityIssue",
-    "merchandiseServiceReceivedDate",
-    "didCardholderPayWorkRedone",
-    "explainWhyWorkRedone",
-    "attemptToResolveProhLocalLaw",
-    "returnedMerchandiseReceivedDate",
-    "howMerchandiseReturned",
-    "howChAttemptReturnAndDispOfMerchandise",
-    "merchandiseWasCounterfeitDate",
-    "infoMerchandiseToBeCounterfeit",
-    "whenNegotiationsBegin",
-    "explainPrevNegotiation",
-    "merchantReceivedReturnedMerchandiseDate",
-    "merchantFacilitiesWithdrawn",
-    "cardholderDeceased",
-    "disputeRelateToOffpremisesDistanceSellInd",
-    "disputeRelateToInd",
-    "contractDate",
-    "merchantInLiquidationOrReceivershipInd",
-    "explainAttemptToResolveWithBondAuth",
-    "bondAuthLetterOrAdviceDate",
-    "dateOfService",
-    "descCounterfeitMerchandise",
-    "descDispOfCounterfeitMerchandise",
-    "cardholderReturnedMerchandiseDate",
-    "merchandiseIdentifiedAsCounterfeit",
-    "originalCreditNotAccepted",
-    "creditVoucherTransactionReceiptDated",
-    "serviceReceivedDate",
-    "certificationGuaranteedReservation",
-    "howTermsOfContractNotHonoredByMerchant"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class ConsumerDisputesType {
 
-    @XmlElement(name = "DisputeDueTo")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DisputeDueTo")
     protected DisputeDueToType disputeDueTo;
-    @XmlElement(name = "RecurringTransactionInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("RecurringTransactionInd")
     protected YNType recurringTransactionInd;
-    @XmlElement(name = "RelatedToInstallmentPaymentInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("RelatedToInstallmentPaymentInd")
     protected YNType relatedToInstallmentPaymentInd;
-    @XmlElement(name = "AccountClosureDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar accountClosureDate;
-    @XmlElement(name = "MerchandiseOrServices")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("AccountClosureDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date accountClosureDate;
+	@JsonProperty("MerchandiseOrServices")
     protected MerchandiseOrServicesType merchandiseOrServices;
-    @XmlElement(name = "CardholderReturnMerchandiseInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderReturnMerchandiseInd")
     protected YNType cardholderReturnMerchandiseInd;
-    @XmlElement(name = "MerchantRefuseAdvise")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchantRefuseAdvise")
     protected MerchantRefuseAdviseIndType merchantRefuseAdvise;
-    @XmlElement(name = "WhatWasPurchased")
+	@JsonProperty("WhatWasPurchased")
     protected String whatWasPurchased;
-    @XmlElement(name = "ChReceivedOrExpectedMerchandise")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar chReceivedOrExpectedMerchandise;
-    @XmlElement(name = "MerchandiseReceivedDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar merchandiseReceivedDate;
-    @XmlElement(name = "HowMerchandiseOrServiceMisrepresented")
+	@JsonProperty("ChReceivedOrExpectedMerchandise")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date chReceivedOrExpectedMerchandise;
+	@JsonProperty("MerchandiseReceivedDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date merchandiseReceivedDate;
+	@JsonProperty("HowMerchandiseOrServiceMisrepresented")
     protected String howMerchandiseOrServiceMisrepresented;
-    @XmlElement(name = "DisputeRelateToApprovedMerchantTypes")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DisputeRelateToApprovedMerchantTypes")
     protected YNType disputeRelateToApprovedMerchantTypes;
-    @XmlElement(name = "DidCardholderCancel")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DidCardholderCancel")
     protected YNType didCardholderCancel;
-    @XmlElement(name = "CancellationDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar cancellationDate;
-    @XmlElement(name = "CancellationMethod")
+	@JsonProperty("CancellationDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date cancellationDate;
+	@JsonProperty("CancellationMethod")
     protected String cancellationMethod;
-    @XmlElement(name = "CardholderFirstNotifiedIssuerDisputeDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar cardholderFirstNotifiedIssuerDisputeDate;
-    @XmlElement(name = "CardholderAttemptToResolve")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderFirstNotifiedIssuerDisputeDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date cardholderFirstNotifiedIssuerDisputeDate;
+	@JsonProperty("CardholderAttemptToResolve")
     protected YNType cardholderAttemptToResolve;
-    @XmlElement(name = "AttemptToResolveExplanation")
+	@JsonProperty("AttemptToResolveExplanation")
     protected String attemptToResolveExplanation;
-    @XmlElement(name = "CardholderDidNotAttemptResolveExplanation")
+	@JsonProperty("CardholderDidNotAttemptResolveExplanation")
     protected String cardholderDidNotAttemptResolveExplanation;
-    @XmlElement(name = "DetailsOfLocalLaw")
+	@JsonProperty("DetailsOfLocalLaw")
     protected String detailsOfLocalLaw;
-    @XmlElement(name = "CardholderCancellationPolicyInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderCancellationPolicyInd")
     protected YNType cardholderCancellationPolicyInd;
-    @XmlElement(name = "NonPolicyCancellationExplanation")
+	@JsonProperty("NonPolicyCancellationExplanation")
     protected String nonPolicyCancellationExplanation;
-    @XmlElement(name = "WhatWasMisrepresented")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("WhatWasMisrepresented")
     protected MerchandiseOrServicesType whatWasMisrepresented;
-    @XmlElement(name = "MostRecentContactDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar mostRecentContactDate;
-    @XmlElement(name = "ContactName")
+	@JsonProperty("MostRecentContactDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date mostRecentContactDate;
+	@JsonProperty("ContactName")
     protected String contactName;
-    @XmlElement(name = "ContactMethod")
+	@JsonProperty("ContactMethod")
     protected String contactMethod;
-    @XmlElement(name = "MerchantResponse")
+	@JsonProperty("MerchantResponse")
     protected String merchantResponse;
-    @XmlElement(name = "ReturnMethod")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("ReturnMethod")
     protected ReturnMethodType returnMethod;
-    @XmlElement(name = "ReturnAuthorizationNumber")
+	@JsonProperty("ReturnAuthorizationNumber")
     protected String returnAuthorizationNumber;
-    @XmlElement(name = "ShippingTrackingNumber")
+	@JsonProperty("ShippingTrackingNumber")
     protected String shippingTrackingNumber;
-    @XmlElement(name = "PackageSignedBy")
+	@JsonProperty("PackageSignedBy")
     protected String packageSignedBy;
-    @XmlElement(name = "DeliveryAddress")
+	@JsonProperty("DeliveryAddress")
     protected String deliveryAddress;
-    @XmlElement(name = "MerchandiseReturnInstructionsInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchandiseReturnInstructionsInd")
     protected YNType merchandiseReturnInstructionsInd;
-    @XmlElement(name = "Instructions")
+	@JsonProperty("Instructions")
     protected String instructions;
-    @XmlElement(name = "WhatWasReserved")
+	@JsonProperty("WhatWasReserved")
     protected String whatWasReserved;
-    @XmlElement(name = "CardholderMerchantPreviousNegotiationEvidence")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderMerchantPreviousNegotiationEvidence")
     protected YNType cardholderMerchantPreviousNegotiationEvidence;
-    @XmlElement(name = "ServiceType")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("ServiceType")
     protected ServiceTypeType serviceType;
-    @XmlElement(name = "SpokeWith")
+	@JsonProperty("SpokeWith")
     protected String spokeWith;
-    @XmlElement(name = "CancellationPolicyProvidedInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CancellationPolicyProvidedInd")
     protected YNType cancellationPolicyProvidedInd;
-    @XmlElement(name = "PolicyInfo")
+	@JsonProperty("PolicyInfo")
     protected String policyInfo;
-    @XmlElement(name = "CancellationConfirmationInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CancellationConfirmationInd")
     protected YNType cancellationConfirmationInd;
-    @XmlElement(name = "MerchantBillInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchantBillInd")
     protected YNType merchantBillInd;
-    @XmlElement(name = "CardholderReservationConfirmationInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderReservationConfirmationInd")
     protected YNType cardholderReservationConfirmationInd;
-    @XmlElement(name = "TimeshareDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar timeshareDate;
-    @XmlElement(name = "WhatWasOrdered")
+	@JsonProperty("TimeshareDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date timeshareDate;
+	@JsonProperty("WhatWasOrdered")
     protected String whatWasOrdered;
-    @XmlElement(name = "CardholderAdvisedMerchandiseCounterfeit")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderAdvisedMerchandiseCounterfeit")
     protected YNType cardholderAdvisedMerchandiseCounterfeit;
-    @XmlElement(name = "WhereIsMerchandiseLocated")
+	@JsonProperty("WhereIsMerchandiseLocated")
     protected String whereIsMerchandiseLocated;
-    @XmlElement(name = "OriginalCreditNotAcceptedInd")
+	@JsonProperty("OriginalCreditNotAcceptedInd")
     protected Boolean originalCreditNotAcceptedInd;
-    @XmlElement(name = "OriginalCreditNotAcceptedProhibitedLawInd")
+	@JsonProperty("OriginalCreditNotAcceptedProhibitedLawInd")
     protected Boolean originalCreditNotAcceptedProhibitedLawInd;
-    @XmlElement(name = "Explain")
+	@JsonProperty("Explain")
     protected String explain;
-    @XmlElement(name = "CreditVoucherTransactionReceipt")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CreditVoucherTransactionReceipt")
     protected YNType creditVoucherTransactionReceipt;
-    @XmlElement(name = "CreditVoucherOrTransactionReceiptDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar creditVoucherOrTransactionReceiptDate;
-    @XmlElement(name = "WhatWasNotReceived")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CreditVoucherOrTransactionReceiptDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date creditVoucherOrTransactionReceiptDate;
+	@JsonProperty("WhatWasNotReceived")
     protected WhatWasNotReceivedType whatWasNotReceived;
-    @XmlElement(name = "DisputeRelateToQualityInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DisputeRelateToQualityInd")
     protected YNType disputeRelateToQualityInd;
-    @XmlElement(name = "DisputeInvolveBondingAuthorityInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DisputeInvolveBondingAuthorityInd")
     protected YNType disputeInvolveBondingAuthorityInd;
-    @XmlElement(name = "PurchasedInfo")
+	@JsonProperty("PurchasedInfo")
     protected String purchasedInfo;
-    @XmlElement(name = "ExpectedReceiptDateTime")
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar expectedReceiptDateTime;
-    @XmlElement(name = "DidCardholderCancelPriorExpectedDate")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("ExpectedReceiptDateTime")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date expectedReceiptDateTime;
+	@JsonProperty("DidCardholderCancelPriorExpectedDate")
     protected YNType didCardholderCancelPriorExpectedDate;
-    @XmlElement(name = "CancellationContact")
+	@JsonProperty("CancellationContact")
     protected String cancellationContact;
-    @XmlElement(name = "BalanceNotPaidGoodsOrServices")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("BalanceNotPaidGoodsOrServices")
     protected YNType balanceNotPaidGoodsOrServices;
-    @XmlElement(name = "ExplainCardholderAttemptToResolve")
+	@JsonProperty("ExplainCardholderAttemptToResolve")
     protected String explainCardholderAttemptToResolve;
-    @XmlElement(name = "MerchandiseDeliveredWrongLocation")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchandiseDeliveredWrongLocation")
     protected YNType merchandiseDeliveredWrongLocation;
-    @XmlElement(name = "LateDeliveryWrongLocation")
+	@JsonProperty("LateDeliveryWrongLocation")
     protected String lateDeliveryWrongLocation;
-    @XmlElement(name = "CardholderAttemptReturnMerchandise")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderAttemptReturnMerchandise")
     protected YNType cardholderAttemptReturnMerchandise;
-    @XmlElement(name = "AttemptedReturnDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar attemptedReturnDate;
-    @XmlElement(name = "DamagedOrDefectiveOrderInfo")
+	@JsonProperty("AttemptedReturnDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date attemptedReturnDate;
+	@JsonProperty("DamagedOrDefectiveOrderInfo")
     protected String damagedOrDefectiveOrderInfo;
-    @XmlElement(name = "OrderDetailsNotAsDescribed")
+	@JsonProperty("OrderDetailsNotAsDescribed")
     protected String orderDetailsNotAsDescribed;
-    @XmlElement(name = "MerchantDescDoNotMatchMerchandiseOrServices")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchantDescDoNotMatchMerchandiseOrServices")
     protected YNType merchantDescDoNotMatchMerchandiseOrServices;
-    @XmlElement(name = "MerchandiseOrServicesDifferFromDescribedOnReceipt")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchandiseOrServicesDifferFromDescribedOnReceipt")
     protected YNType merchandiseOrServicesDifferFromDescribedOnReceipt;
-    @XmlElement(name = "Explanation")
+	@JsonProperty("Explanation")
     protected String explanation;
-    @XmlElement(name = "WhatWasNotDescribed")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("WhatWasNotDescribed")
     protected MerchandiseOrServicesType whatWasNotDescribed;
-    @XmlElement(name = "CardholderCancelServices")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderCancelServices")
     protected YNType cardholderCancelServices;
-    @XmlElement(name = "QualityIssueWith")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("QualityIssueWith")
     protected MerchandiseOrServicesType qualityIssueWith;
-    @XmlElement(name = "PurchasedInfoAndQualityIssue")
+	@JsonProperty("PurchasedInfoAndQualityIssue")
     protected String purchasedInfoAndQualityIssue;
-    @XmlElement(name = "MerchandiseServiceReceivedDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar merchandiseServiceReceivedDate;
-    @XmlElement(name = "DidCardholderPayWorkRedone")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("MerchandiseServiceReceivedDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date merchandiseServiceReceivedDate;
+	@JsonProperty("DidCardholderPayWorkRedone")
     protected YNType didCardholderPayWorkRedone;
-    @XmlElement(name = "ExplainWhyWorkRedone")
+	@JsonProperty("ExplainWhyWorkRedone")
     protected String explainWhyWorkRedone;
-    @XmlElement(name = "AttemptToResolveProhLocalLaw")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("AttemptToResolveProhLocalLaw")
     protected YNType attemptToResolveProhLocalLaw;
-    @XmlElement(name = "ReturnedMerchandiseReceivedDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar returnedMerchandiseReceivedDate;
-    @XmlElement(name = "HowMerchandiseReturned")
+	@JsonProperty("ReturnedMerchandiseReceivedDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date returnedMerchandiseReceivedDate;
+	@JsonProperty("HowMerchandiseReturned")
     protected String howMerchandiseReturned;
-    @XmlElement(name = "HowChAttemptReturnAndDispOfMerchandise")
+	@JsonProperty("HowChAttemptReturnAndDispOfMerchandise")
     protected String howChAttemptReturnAndDispOfMerchandise;
-    @XmlElement(name = "MerchandiseWasCounterfeitDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar merchandiseWasCounterfeitDate;
-    @XmlElement(name = "InfoMerchandiseToBeCounterfeit")
+	@JsonProperty("MerchandiseWasCounterfeitDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date merchandiseWasCounterfeitDate;
+	@JsonProperty("InfoMerchandiseToBeCounterfeit")
     protected String infoMerchandiseToBeCounterfeit;
-    @XmlElement(name = "WhenNegotiationsBegin")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar whenNegotiationsBegin;
-    @XmlElement(name = "ExplainPrevNegotiation")
+	@JsonProperty("WhenNegotiationsBegin")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date whenNegotiationsBegin;
+	@JsonProperty("ExplainPrevNegotiation")
     protected String explainPrevNegotiation;
-    @XmlElement(name = "MerchantReceivedReturnedMerchandiseDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar merchantReceivedReturnedMerchandiseDate;
-    @XmlElement(name = "MerchantFacilitiesWithdrawn")
+	@JsonProperty("MerchantReceivedReturnedMerchandiseDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date merchantReceivedReturnedMerchandiseDate;
+	@JsonProperty("MerchantFacilitiesWithdrawn")
     protected Boolean merchantFacilitiesWithdrawn;
-    @XmlElement(name = "CardholderDeceased")
+	@JsonProperty("CardholderDeceased")
     protected Boolean cardholderDeceased;
-    @XmlElement(name = "DisputeRelateToOffpremisesDistanceSellInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DisputeRelateToOffpremisesDistanceSellInd")
     protected YNType disputeRelateToOffpremisesDistanceSellInd;
-    @XmlElement(name = "DisputeRelateToInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("DisputeRelateToInd")
     protected YNType disputeRelateToInd;
-    @XmlElement(name = "ContractDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar contractDate;
-    @XmlElement(name = "MerchantInLiquidationOrReceivershipInd")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("ContractDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date contractDate;
+	@JsonProperty("MerchantInLiquidationOrReceivershipInd")
     protected YNType merchantInLiquidationOrReceivershipInd;
-    @XmlElement(name = "ExplainAttemptToResolveWithBondAuth")
+	@JsonProperty("ExplainAttemptToResolveWithBondAuth")
     protected String explainAttemptToResolveWithBondAuth;
-    @XmlElement(name = "BondAuthLetterOrAdviceDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar bondAuthLetterOrAdviceDate;
-    @XmlElement(name = "DateOfService")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar dateOfService;
-    @XmlElement(name = "DescCounterfeitMerchandise")
+	@JsonProperty("BondAuthLetterOrAdviceDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date bondAuthLetterOrAdviceDate;
+	@JsonProperty("DateOfService")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date dateOfService;
+	@JsonProperty("DescCounterfeitMerchandise")
     protected String descCounterfeitMerchandise;
-    @XmlElement(name = "DescDispOfCounterfeitMerchandise")
+	@JsonProperty("DescDispOfCounterfeitMerchandise")
     protected String descDispOfCounterfeitMerchandise;
-    @XmlElement(name = "CardholderReturnedMerchandiseDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar cardholderReturnedMerchandiseDate;
-    @XmlElement(name = "MerchandiseIdentifiedAsCounterfeit")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CardholderReturnedMerchandiseDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date cardholderReturnedMerchandiseDate;
+	@JsonProperty("MerchandiseIdentifiedAsCounterfeit")
     protected MerchandiseIdentifiedAsCounterfeitType merchandiseIdentifiedAsCounterfeit;
-    @XmlElement(name = "OriginalCreditNotAccepted")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("OriginalCreditNotAccepted")
     protected OriginalCreditNotAcceptedType originalCreditNotAccepted;
-    @XmlElement(name = "CreditVoucherTransactionReceiptDated")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("CreditVoucherTransactionReceiptDated")
     protected YNType creditVoucherTransactionReceiptDated;
-    @XmlElement(name = "ServiceReceivedDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar serviceReceivedDate;
-    @XmlElement(name = "CertificationGuaranteedReservation")
-    @XmlSchemaType(name = "string")
+	@JsonProperty("ServiceReceivedDate")
+	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date serviceReceivedDate;
+	@JsonProperty("CertificationGuaranteedReservation")
     protected CertificationGuaranteedReservationType certificationGuaranteedReservation;
-    @XmlElement(name = "HowTermsOfContractNotHonoredByMerchant")
+	@JsonProperty("HowTermsOfContractNotHonoredByMerchant")
     protected String howTermsOfContractNotHonoredByMerchant;
 
     /**
@@ -595,10 +387,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getAccountClosureDate() {
+    public Date getAccountClosureDate() {
         return accountClosureDate;
     }
 
@@ -607,10 +399,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setAccountClosureDate(XMLGregorianCalendar value) {
+    public void setAccountClosureDate(Date value) {
         this.accountClosureDate = value;
     }
 
@@ -715,10 +507,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getChReceivedOrExpectedMerchandise() {
+    public Date getChReceivedOrExpectedMerchandise() {
         return chReceivedOrExpectedMerchandise;
     }
 
@@ -727,10 +519,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setChReceivedOrExpectedMerchandise(XMLGregorianCalendar value) {
+    public void setChReceivedOrExpectedMerchandise(Date value) {
         this.chReceivedOrExpectedMerchandise = value;
     }
 
@@ -739,10 +531,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getMerchandiseReceivedDate() {
+    public Date getMerchandiseReceivedDate() {
         return merchandiseReceivedDate;
     }
 
@@ -751,10 +543,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setMerchandiseReceivedDate(XMLGregorianCalendar value) {
+    public void setMerchandiseReceivedDate(Date value) {
         this.merchandiseReceivedDate = value;
     }
 
@@ -835,10 +627,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getCancellationDate() {
+    public Date getCancellationDate() {
         return cancellationDate;
     }
 
@@ -847,10 +639,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setCancellationDate(XMLGregorianCalendar value) {
+    public void setCancellationDate(Date value) {
         this.cancellationDate = value;
     }
 
@@ -883,10 +675,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getCardholderFirstNotifiedIssuerDisputeDate() {
+    public Date getCardholderFirstNotifiedIssuerDisputeDate() {
         return cardholderFirstNotifiedIssuerDisputeDate;
     }
 
@@ -895,10 +687,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setCardholderFirstNotifiedIssuerDisputeDate(XMLGregorianCalendar value) {
+    public void setCardholderFirstNotifiedIssuerDisputeDate(Date value) {
         this.cardholderFirstNotifiedIssuerDisputeDate = value;
     }
 
@@ -1075,10 +867,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getMostRecentContactDate() {
+    public Date getMostRecentContactDate() {
         return mostRecentContactDate;
     }
 
@@ -1087,10 +879,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setMostRecentContactDate(XMLGregorianCalendar value) {
+    public void setMostRecentContactDate(Date value) {
         this.mostRecentContactDate = value;
     }
 
@@ -1555,10 +1347,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getTimeshareDate() {
+    public Date getTimeshareDate() {
         return timeshareDate;
     }
 
@@ -1567,10 +1359,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setTimeshareDate(XMLGregorianCalendar value) {
+    public void setTimeshareDate(Date value) {
         this.timeshareDate = value;
     }
 
@@ -1747,10 +1539,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getCreditVoucherOrTransactionReceiptDate() {
+    public Date getCreditVoucherOrTransactionReceiptDate() {
         return creditVoucherOrTransactionReceiptDate;
     }
 
@@ -1759,10 +1551,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setCreditVoucherOrTransactionReceiptDate(XMLGregorianCalendar value) {
+    public void setCreditVoucherOrTransactionReceiptDate(Date value) {
         this.creditVoucherOrTransactionReceiptDate = value;
     }
 
@@ -1867,10 +1659,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getExpectedReceiptDateTime() {
+    public Date getExpectedReceiptDateTime() {
         return expectedReceiptDateTime;
     }
 
@@ -1879,10 +1671,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setExpectedReceiptDateTime(XMLGregorianCalendar value) {
+    public void setExpectedReceiptDateTime(Date value) {
         this.expectedReceiptDateTime = value;
     }
 
@@ -2059,10 +1851,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getAttemptedReturnDate() {
+    public Date getAttemptedReturnDate() {
         return attemptedReturnDate;
     }
 
@@ -2071,10 +1863,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setAttemptedReturnDate(XMLGregorianCalendar value) {
+    public void setAttemptedReturnDate(Date value) {
         this.attemptedReturnDate = value;
     }
 
@@ -2299,10 +2091,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getMerchandiseServiceReceivedDate() {
+    public Date getMerchandiseServiceReceivedDate() {
         return merchandiseServiceReceivedDate;
     }
 
@@ -2311,10 +2103,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setMerchandiseServiceReceivedDate(XMLGregorianCalendar value) {
+    public void setMerchandiseServiceReceivedDate(Date value) {
         this.merchandiseServiceReceivedDate = value;
     }
 
@@ -2395,10 +2187,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getReturnedMerchandiseReceivedDate() {
+    public Date getReturnedMerchandiseReceivedDate() {
         return returnedMerchandiseReceivedDate;
     }
 
@@ -2407,10 +2199,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setReturnedMerchandiseReceivedDate(XMLGregorianCalendar value) {
+    public void setReturnedMerchandiseReceivedDate(Date value) {
         this.returnedMerchandiseReceivedDate = value;
     }
 
@@ -2467,10 +2259,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getMerchandiseWasCounterfeitDate() {
+    public Date getMerchandiseWasCounterfeitDate() {
         return merchandiseWasCounterfeitDate;
     }
 
@@ -2479,10 +2271,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setMerchandiseWasCounterfeitDate(XMLGregorianCalendar value) {
+    public void setMerchandiseWasCounterfeitDate(Date value) {
         this.merchandiseWasCounterfeitDate = value;
     }
 
@@ -2515,10 +2307,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getWhenNegotiationsBegin() {
+    public Date getWhenNegotiationsBegin() {
         return whenNegotiationsBegin;
     }
 
@@ -2527,10 +2319,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setWhenNegotiationsBegin(XMLGregorianCalendar value) {
+    public void setWhenNegotiationsBegin(Date value) {
         this.whenNegotiationsBegin = value;
     }
 
@@ -2563,10 +2355,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getMerchantReceivedReturnedMerchandiseDate() {
+    public Date getMerchantReceivedReturnedMerchandiseDate() {
         return merchantReceivedReturnedMerchandiseDate;
     }
 
@@ -2575,10 +2367,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setMerchantReceivedReturnedMerchandiseDate(XMLGregorianCalendar value) {
+    public void setMerchantReceivedReturnedMerchandiseDate(Date value) {
         this.merchantReceivedReturnedMerchandiseDate = value;
     }
 
@@ -2683,10 +2475,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getContractDate() {
+    public Date getContractDate() {
         return contractDate;
     }
 
@@ -2695,10 +2487,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setContractDate(XMLGregorianCalendar value) {
+    public void setContractDate(Date value) {
         this.contractDate = value;
     }
 
@@ -2755,10 +2547,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getBondAuthLetterOrAdviceDate() {
+    public Date getBondAuthLetterOrAdviceDate() {
         return bondAuthLetterOrAdviceDate;
     }
 
@@ -2767,10 +2559,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setBondAuthLetterOrAdviceDate(XMLGregorianCalendar value) {
+    public void setBondAuthLetterOrAdviceDate(Date value) {
         this.bondAuthLetterOrAdviceDate = value;
     }
 
@@ -2779,10 +2571,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getDateOfService() {
+    public Date getDateOfService() {
         return dateOfService;
     }
 
@@ -2791,10 +2583,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setDateOfService(XMLGregorianCalendar value) {
+    public void setDateOfService(Date value) {
         this.dateOfService = value;
     }
 
@@ -2851,10 +2643,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getCardholderReturnedMerchandiseDate() {
+    public Date getCardholderReturnedMerchandiseDate() {
         return cardholderReturnedMerchandiseDate;
     }
 
@@ -2863,10 +2655,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setCardholderReturnedMerchandiseDate(XMLGregorianCalendar value) {
+    public void setCardholderReturnedMerchandiseDate(Date value) {
         this.cardholderReturnedMerchandiseDate = value;
     }
 
@@ -2947,10 +2739,10 @@ public class ConsumerDisputesType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getServiceReceivedDate() {
+    public Date getServiceReceivedDate() {
         return serviceReceivedDate;
     }
 
@@ -2959,10 +2751,10 @@ public class ConsumerDisputesType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setServiceReceivedDate(XMLGregorianCalendar value) {
+    public void setServiceReceivedDate(Date value) {
         this.serviceReceivedDate = value;
     }
 

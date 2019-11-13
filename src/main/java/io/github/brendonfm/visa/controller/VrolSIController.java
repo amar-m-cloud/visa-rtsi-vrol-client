@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.brendonfm.visa.dto.SISubmitDisputeQuestionnaireRequestType;
+import io.github.brendonfm.visa.dto.SISubmitDisputeQuestionnaireResponseType;
 import io.github.brendonfm.visa.dto.SISubmitFraudReportRequestType;
 import io.github.brendonfm.visa.dto.SISubmitFraudReportResponseType;
 import io.github.brendonfm.visa.dto.SISubmitTranInquiryRequestType;
@@ -93,6 +95,28 @@ public class VrolSIController {
 						certificatePassword)
 				.submitFraudReport(requestDto);
 
+	}
+	
+	@PostMapping("submitDisputeQuestionnaire")
+	public SISubmitDisputeQuestionnaireResponseType submitDisputeQuestionnaire(
+			@RequestBody final SISubmitDisputeQuestionnaireRequestType requestDto) throws KeyManagementException, 
+			UnrecoverableKeyException, 
+			KeyStoreException, 
+			NoSuchAlgorithmException, 
+			CertificateException, 
+			FileNotFoundException, 
+			IOException {
+		return VisaClientFactory
+				.create(baseUrl,
+						connectionTimeoutLimit,
+						clientKeyStorePath,
+						sslLogPath,
+						debugSSL,
+						useCertificate,
+						username,
+						password,
+						certificatePassword)
+				.submitDisputeQuestionnaire(requestDto);
 	}
 
 }

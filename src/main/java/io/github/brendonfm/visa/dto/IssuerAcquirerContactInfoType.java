@@ -8,54 +8,24 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-/**
- * <p>Java class for IssuerAcquirerContactInfoType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="IssuerAcquirerContactInfoType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ContactName" minOccurs="0"/>
- *         &lt;element name="ContactPhone" type="{http://www.visa.com/ROLSI}PhoneNumType" minOccurs="0"/>
- *         &lt;element name="ContactFax" type="{http://www.visa.com/ROLSI}DisputePhoneNumType" minOccurs="0"/>
- *         &lt;element name="ContactOther" type="{http://www.visa.com/ROLSI}DisputePhoneNumType" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ContactEmail" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "IssuerAcquirerContactInfoType", propOrder = {
-    "contactName",
-    "contactPhone",
-    "contactFax",
-    "contactOther",
-    "contactEmail"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class IssuerAcquirerContactInfoType {
 
-    @XmlElement(name = "ContactName")
+    @JsonProperty("ContactName")
     protected String contactName;
-    @XmlElement(name = "ContactPhone")
+    @JsonProperty("ContactPhone")
     protected String contactPhone;
-    @XmlElement(name = "ContactFax")
+    @JsonProperty("ContactFax")
     protected String contactFax;
-    @XmlElement(name = "ContactOther")
+    @JsonProperty("ContactOther")
     protected String contactOther;
-    @XmlElement(name = "ContactEmail")
+    @JsonProperty("ContactEmail")
     protected String contactEmail;
 
     /**

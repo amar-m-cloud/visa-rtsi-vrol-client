@@ -8,134 +8,69 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Date;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * <p>Java class for SubmitDisputeQuestionnaireRequestType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SubmitDisputeQuestionnaireRequestType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DisputeId"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}VisaCaseNumber" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}MemberCaseNumber" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DisputeAmount" minOccurs="0"/>
- *         &lt;element name="ExceptionCPD" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DisputeCardholderInfo" minOccurs="0"/>
- *         &lt;element name="Note" type="{http://www.visa.com/ROLSI}NoteType" minOccurs="0"/>
- *         &lt;element name="DisputeFraudInfo" type="{http://www.visa.com/ROLSI}DisputeFraudInfoType" minOccurs="0"/>
- *         &lt;element name="DisputeEFLInfo" type="{http://www.visa.com/ROLSI}DisputeEFLInfoType" minOccurs="0"/>
- *         &lt;element name="DisputeAmountChangeReason" type="{http://www.visa.com/ROLSI}Desc10000Type" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}CreateDisputeFinancial" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}TransactionMessageFormat" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}ExplanationOfCreditPresented" minOccurs="0"/>
- *         &lt;choice minOccurs="0">
- *           &lt;element name="Authorization" type="{http://www.visa.com/ROLSI}DisputeAuthorizationType" minOccurs="0"/>
- *           &lt;element name="Fraud" type="{http://www.visa.com/ROLSI}DisputeFraudType" minOccurs="0"/>
- *           &lt;element name="ProcessingError" type="{http://www.visa.com/ROLSI}DisputeProcessErrorType" minOccurs="0"/>
- *           &lt;element name="Consumer" type="{http://www.visa.com/ROLSI}ConsumerDisputesType" minOccurs="0"/>
- *         &lt;/choice>
- *         &lt;element name="IssuerAcquirerContactInfo" type="{http://www.visa.com/ROLSI}IssuerAcquirerContactInfoType" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}DisputeAttachmentDescriptor" minOccurs="0"/>
- *         &lt;element name="DocIdList" type="{http://www.visa.com/ROLSI}DocIdListType" minOccurs="0"/>
- *         &lt;element name="Action" type="{http://www.visa.com/ROLSI}DisputeCaseActionType" minOccurs="0"/>
- *         &lt;element name="SupplyDocInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="IsParcelado" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SubmitDisputeQuestionnaireRequestType", propOrder = {
-    "disputeId",
-    "visaCaseNumber",
-    "memberCaseNumber",
-    "disputeAmount",
-    "exceptionCPD",
-    "disputeCardholderInfo",
-    "note",
-    "disputeFraudInfo",
-    "disputeEFLInfo",
-    "disputeAmountChangeReason",
-    "createDisputeFinancial",
-    "transactionMessageFormat",
-    "explanationOfCreditPresented",
-    "authorization",
-    "fraud",
-    "processingError",
-    "consumer",
-    "issuerAcquirerContactInfo",
-    "disputeAttachmentDescriptor",
-    "docIdList",
-    "action",
-    "supplyDocInd",
-    "isParcelado"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class SubmitDisputeQuestionnaireRequestType {
 
-    @XmlElement(name = "DisputeId")
+    @JsonProperty("DisputeId")
     protected long disputeId;
-    @XmlElement(name = "VisaCaseNumber")
+    @JsonProperty("VisaCaseNumber")
     protected Long visaCaseNumber;
-    @XmlElement(name = "MemberCaseNumber")
+    @JsonProperty("MemberCaseNumber")
     protected String memberCaseNumber;
-    @XmlElement(name = "DisputeAmount")
+    @JsonProperty("DisputeAmount")
     protected AmountType disputeAmount;
-    @XmlElement(name = "ExceptionCPD")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar exceptionCPD;
-    @XmlElement(name = "DisputeCardholderInfo")
+    @JsonProperty("ExceptionCPD")
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date exceptionCPD;
+    @JsonProperty("DisputeCardholderInfo")
     protected DisputeCardholderInfoType disputeCardholderInfo;
-    @XmlElement(name = "Note")
+    @JsonProperty("Note")
     protected String note;
-    @XmlElement(name = "DisputeFraudInfo")
+    @JsonProperty("DisputeFraudInfo")
     protected DisputeFraudInfoType disputeFraudInfo;
-    @XmlElement(name = "DisputeEFLInfo")
+    @JsonProperty("DisputeEFLInfo")
     protected DisputeEFLInfoType disputeEFLInfo;
-    @XmlElement(name = "DisputeAmountChangeReason")
+    @JsonProperty("DisputeAmountChangeReason")
     protected String disputeAmountChangeReason;
-    @XmlElement(name = "CreateDisputeFinancial")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("CreateDisputeFinancial")
     protected YNType createDisputeFinancial;
-    @XmlElement(name = "TransactionMessageFormat")
+    @JsonProperty("TransactionMessageFormat")
     protected String transactionMessageFormat;
-    @XmlElement(name = "ExplanationOfCreditPresented")
+    @JsonProperty("ExplanationOfCreditPresented")
     protected String explanationOfCreditPresented;
-    @XmlElement(name = "Authorization")
+    @JsonProperty("Authorization")
     protected DisputeAuthorizationType authorization;
-    @XmlElement(name = "Fraud")
+    @JsonProperty("Fraud")
     protected DisputeFraudType fraud;
-    @XmlElement(name = "ProcessingError")
+    @JsonProperty("ProcessingError")
     protected DisputeProcessErrorType processingError;
-    @XmlElement(name = "Consumer")
+    @JsonProperty("Consumer")
     protected ConsumerDisputesType consumer;
-    @XmlElement(name = "IssuerAcquirerContactInfo")
+    @JsonProperty("IssuerAcquirerContactInfo")
     protected IssuerAcquirerContactInfoType issuerAcquirerContactInfo;
-    @XmlElement(name = "DisputeAttachmentDescriptor")
+    @JsonProperty("DisputeAttachmentDescriptor")
     protected DisputeAttachmentDescriptorType disputeAttachmentDescriptor;
-    @XmlElement(name = "DocIdList")
+    @JsonProperty("DocIdList")
     protected DocIdListType docIdList;
-    @XmlElement(name = "Action")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("Action")
     protected DisputeCaseActionType action;
-    @XmlElement(name = "SupplyDocInd")
+    @JsonProperty("SupplyDocInd")
     protected Boolean supplyDocInd;
-    @XmlElement(name = "IsParcelado")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("IsParcelado")
     protected YNType isParcelado;
 
     /**
@@ -234,7 +169,7 @@ public class SubmitDisputeQuestionnaireRequestType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getExceptionCPD() {
+    public Date getExceptionCPD() {
         return exceptionCPD;
     }
 
@@ -246,7 +181,7 @@ public class SubmitDisputeQuestionnaireRequestType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setExceptionCPD(XMLGregorianCalendar value) {
+    public void setExceptionCPD(Date value) {
         this.exceptionCPD = value;
     }
 
