@@ -8,44 +8,19 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-/**
- * <p>Java class for SISubmitDisputeQuestionnaireRequestType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SISubmitDisputeQuestionnaireRequestType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.visa.com/ROLSI}RequestBodyType">
- *       &lt;sequence>
- *         &lt;element name="RequestHeader" type="{http://www.visa.com/ROLSI}RequestHeaderType"/>
- *         &lt;element name="RequestData" type="{http://www.visa.com/ROLSI}SubmitDisputeQuestionnaireRequestType"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SISubmitDisputeQuestionnaireRequestType", propOrder = {
-    "requestHeader",
-    "requestData"
-})
-public class SISubmitDisputeQuestionnaireRequestType
-    extends RequestBodyType
-{
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
+public class SISubmitDisputeQuestionnaireRequestType extends RequestBodyType {
 
-    @XmlElement(name = "RequestHeader", required = true)
+	@JsonProperty("RequestHeader")
     protected RequestHeaderType requestHeader;
-    @XmlElement(name = "RequestData", required = true)
+	@JsonProperty("RequestData")
     protected SubmitDisputeQuestionnaireRequestType requestData;
 
     /**

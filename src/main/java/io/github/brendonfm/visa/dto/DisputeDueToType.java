@@ -8,37 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for DisputeDueToType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="DisputeDueToType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="CR"/>
- *     &lt;enumeration value="CS"/>
- *     &lt;enumeration value="CM"/>
- *     &lt;enumeration value="CN"/>
- *     &lt;enumeration value="DM"/>
- *     &lt;enumeration value="M"/>
- *     &lt;enumeration value="NR"/>
- *     &lt;enumeration value="ND"/>
- *     &lt;enumeration value="OC"/>
- *     &lt;enumeration value="Q"/>
- *     &lt;enumeration value="CL"/>
- *     &lt;enumeration value="TC"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "DisputeDueToType")
-@XmlEnum
 public enum DisputeDueToType {
 
     CR,
@@ -54,6 +25,7 @@ public enum DisputeDueToType {
     CL,
     TC;
 
+	@JsonValue
     public String value() {
         return name();
     }

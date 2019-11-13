@@ -8,32 +8,14 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for PurgeOptionsType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="PurgeOptionsType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="P"/>
- *     &lt;enumeration value="N"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "PurgeOptionsType")
-@XmlEnum
 public enum PurgeOptionsType {
 
     P,
     N;
 
+	 @JsonValue
     public String value() {
         return name();
     }

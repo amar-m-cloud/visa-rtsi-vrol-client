@@ -8,34 +8,15 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for MerchandiseIdentifiedAsCounterfeitType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="MerchandiseIdentifiedAsCounterfeitType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="O"/>
- *     &lt;enumeration value="A"/>
- *     &lt;enumeration value="T"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "MerchandiseIdentifiedAsCounterfeitType")
-@XmlEnum
 public enum MerchandiseIdentifiedAsCounterfeitType {
 
     O,
     A,
     T;
 
+	@JsonValue
     public String value() {
         return name();
     }

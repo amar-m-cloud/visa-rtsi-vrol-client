@@ -8,34 +8,15 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for ServiceTypeType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="ServiceTypeType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="T"/>
- *     &lt;enumeration value="G"/>
- *     &lt;enumeration value="O"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "ServiceTypeType")
-@XmlEnum
 public enum ServiceTypeType {
 
     T,
     G,
     O;
 
+	@JsonValue
     public String value() {
         return name();
     }

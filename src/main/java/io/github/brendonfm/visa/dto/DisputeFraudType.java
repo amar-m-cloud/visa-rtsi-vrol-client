@@ -8,80 +8,44 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import java.util.Date;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * <p>Java class for DisputeFraudType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeFraudType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.visa.com/ROLSI}CardStatusWhenTransactionHappened" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}FraudOtherExplanation" minOccurs="0"/>
- *         &lt;element name="PinPreferringCard" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="ChipOnCard" type="{http://www.visa.com/ROLSI}YNType" minOccurs="0"/>
- *         &lt;element name="CardholderDeniesAuthorizingInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="CardholderOnlineBankingCertificationObtainedInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="UniqueIdentity" type="{http://www.visa.com/ROLSI}UniqueIdentityType" minOccurs="0"/>
- *         &lt;element name="CardholderTeleBankingCertificationObtainedInd" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="DateAndTimeOfCall" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="NameOfIssuerRepresentative" type="{http://www.visa.com/ROLSI}NameOfIssuerRepresentativeType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeFraudType", propOrder = {
-    "cardStatusWhenTransactionHappened",
-    "fraudOtherExplanation",
-    "pinPreferringCard",
-    "chipOnCard",
-    "cardholderDeniesAuthorizingInd",
-    "cardholderOnlineBankingCertificationObtainedInd",
-    "uniqueIdentity",
-    "cardholderTeleBankingCertificationObtainedInd",
-    "dateAndTimeOfCall",
-    "nameOfIssuerRepresentative"
-})
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeFraudType {
 
-    @XmlElement(name = "CardStatusWhenTransactionHappened")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("CardStatusWhenTransactionHappened")
     protected CardStatusWhenTransactionHappenedType cardStatusWhenTransactionHappened;
-    @XmlElement(name = "FraudOtherExplanation")
+    @JsonProperty("FraudOtherExplanation")
     protected String fraudOtherExplanation;
-    @XmlElement(name = "PinPreferringCard")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("PinPreferringCard")
     protected YNType pinPreferringCard;
-    @XmlElement(name = "ChipOnCard")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("ChipOnCard")
     protected YNType chipOnCard;
-    @XmlElement(name = "CardholderDeniesAuthorizingInd")
+    @JsonProperty("CardholderDeniesAuthorizingInd")
     protected Boolean cardholderDeniesAuthorizingInd;
-    @XmlElement(name = "CardholderOnlineBankingCertificationObtainedInd")
+    @JsonProperty("CardholderOnlineBankingCertificationObtainedInd")
     protected Boolean cardholderOnlineBankingCertificationObtainedInd;
-    @XmlElement(name = "UniqueIdentity")
+    @JsonProperty("UniqueIdentity")
     protected String uniqueIdentity;
-    @XmlElement(name = "CardholderTeleBankingCertificationObtainedInd")
+    @JsonProperty("CardholderTeleBankingCertificationObtainedInd")
     protected Boolean cardholderTeleBankingCertificationObtainedInd;
-    @XmlElement(name = "DateAndTimeOfCall")
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar dateAndTimeOfCall;
-    @XmlElement(name = "NameOfIssuerRepresentative")
+    @JsonProperty("DateAndTimeOfCall")
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	shape = JsonFormat.Shape.STRING,
+	locale = "pt-BR",
+	timezone = "Brazil/East")
+    protected Date dateAndTimeOfCall;
+    @JsonProperty("NameOfIssuerRepresentative")
     protected String nameOfIssuerRepresentative;
 
     /**
@@ -284,7 +248,7 @@ public class DisputeFraudType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getDateAndTimeOfCall() {
+    public Date getDateAndTimeOfCall() {
         return dateAndTimeOfCall;
     }
 
@@ -296,7 +260,7 @@ public class DisputeFraudType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setDateAndTimeOfCall(XMLGregorianCalendar value) {
+    public void setDateAndTimeOfCall(Date value) {
         this.dateAndTimeOfCall = value;
     }
 

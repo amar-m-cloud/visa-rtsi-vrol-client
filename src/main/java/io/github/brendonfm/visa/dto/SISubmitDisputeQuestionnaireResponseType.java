@@ -10,44 +10,20 @@ package io.github.brendonfm.visa.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-/**
- * <p>Java class for SISubmitDisputeQuestionnaireResponseType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="SISubmitDisputeQuestionnaireResponseType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.visa.com/ROLSI}ResponseBodyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.visa.com/ROLSI}Status" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="ResponseData" type="{http://www.visa.com/ROLSI}SubmitDisputeQuestionnaireResponseType"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SISubmitDisputeQuestionnaireResponseType", propOrder = {
-    "status",
-    "responseData"
-})
-public class SISubmitDisputeQuestionnaireResponseType
-    extends ResponseBodyType
-{
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
+public class SISubmitDisputeQuestionnaireResponseType extends ResponseBodyType {
 
-    @XmlElement(name = "Status")
+	@JsonProperty("Status")
     protected List<StatusType> status;
-    @XmlElement(name = "ResponseData", required = true)
+	@JsonProperty("ResponseData")
     protected SubmitDisputeQuestionnaireResponseType responseData;
 
     /**

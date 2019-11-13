@@ -9,53 +9,24 @@
 package io.github.brendonfm.visa.dto;
 
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-/**
- * <p>Java class for DisputeEFLInfoType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="DisputeEFLInfoType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="EFLActionCode" type="{http://www.visa.com/ROLSI}EFLActionCodeType" minOccurs="0"/>
- *         &lt;element name="PurgeOptions" type="{http://www.visa.com/ROLSI}PurgeOptionsType" minOccurs="0"/>
- *         &lt;element name="PurgeNoOfDays" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element ref="{http://www.visa.com/ROLSI}CardRecoveryBulletinRegions" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeEFLInfoType", propOrder = {
-    "eflActionCode",
-    "purgeOptions",
-    "purgeNoOfDays",
-    "cardRecoveryBulletinRegions"
-})
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_EMPTY)
 public class DisputeEFLInfoType {
 
-    @XmlElement(name = "EFLActionCode")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("EFLActionCode")
     protected EFLActionCodeType eflActionCode;
-    @XmlElement(name = "PurgeOptions")
-    @XmlSchemaType(name = "string")
+    @JsonProperty("PurgeOptions")
     protected PurgeOptionsType purgeOptions;
-    @XmlElement(name = "PurgeNoOfDays")
+    @JsonProperty("PurgeNoOfDays")
     protected BigInteger purgeNoOfDays;
-    @XmlElement(name = "CardRecoveryBulletinRegions")
+    @JsonProperty("CardRecoveryBulletinRegions")
     protected CRBRegionType cardRecoveryBulletinRegions;
 
     /**

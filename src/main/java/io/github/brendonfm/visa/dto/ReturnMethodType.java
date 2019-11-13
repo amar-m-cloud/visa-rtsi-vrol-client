@@ -8,31 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for ReturnMethodType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="ReturnMethodType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="FF"/>
- *     &lt;enumeration value="FE"/>
- *     &lt;enumeration value="D"/>
- *     &lt;enumeration value="U"/>
- *     &lt;enumeration value="P"/>
- *     &lt;enumeration value="O"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "ReturnMethodType")
-@XmlEnum
 public enum ReturnMethodType {
 
     FF,
@@ -42,6 +19,7 @@ public enum ReturnMethodType {
     P,
     O;
 
+	@JsonValue
     public String value() {
         return name();
     }

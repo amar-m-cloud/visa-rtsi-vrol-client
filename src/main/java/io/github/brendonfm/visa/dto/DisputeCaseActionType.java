@@ -8,40 +8,20 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for DisputeCaseActionType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="DisputeCaseActionType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="Save"/>
- *     &lt;enumeration value="Submit"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "DisputeCaseActionType")
-@XmlEnum
 public enum DisputeCaseActionType {
 
-    @XmlEnumValue("Save")
     SAVE("Save"),
-    @XmlEnumValue("Submit")
     SUBMIT("Submit");
+	
     private final String value;
 
     DisputeCaseActionType(String v) {
         value = v;
     }
 
+    @JsonValue
     public String value() {
         return value;
     }

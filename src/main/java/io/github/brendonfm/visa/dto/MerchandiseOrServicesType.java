@@ -8,40 +8,20 @@
 
 package io.github.brendonfm.visa.dto;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-
-/**
- * <p>Java class for MerchandiseOrServicesType.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="MerchandiseOrServicesType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="Merchandise"/>
- *     &lt;enumeration value="Services"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
-@XmlType(name = "MerchandiseOrServicesType")
-@XmlEnum
 public enum MerchandiseOrServicesType {
 
-    @XmlEnumValue("Merchandise")
     MERCHANDISE("Merchandise"),
-    @XmlEnumValue("Services")
     SERVICES("Services");
+	
     private final String value;
 
     MerchandiseOrServicesType(String v) {
         value = v;
     }
 
+    @JsonValue
     public String value() {
         return value;
     }
