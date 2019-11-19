@@ -12,9 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StatusType {
 
-	@JsonProperty(value = "Code", required = true)
+	@JsonProperty(value = "Code")
 	protected String code;
-	@JsonProperty(value = "Message", required = true)
+	@JsonProperty(value = "Message")
 	protected String message;
 	@JsonProperty(value = "ErrorIn")
 	protected String errorIn;

@@ -21,6 +21,22 @@ public class SubmitFraudReportResponseType {
 	protected long visaCaseNumber;
 	@JsonProperty(value = "FraudReportID")
 	protected long fraudReportID;
+	
+	
+
+	public SubmitFraudReportResponseType() {
+		super();
+	}
+	
+	
+
+	public SubmitFraudReportResponseType(long visaCaseNumber, long fraudReportID) {
+		super();
+		this.visaCaseNumber = visaCaseNumber;
+		this.fraudReportID = fraudReportID;
+	}
+
+
 
 	/**
 	 * Gets the value of the visaCaseNumber property.

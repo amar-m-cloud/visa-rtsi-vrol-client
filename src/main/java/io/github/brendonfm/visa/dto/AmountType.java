@@ -25,6 +25,17 @@ public class AmountType {
 	@JsonProperty("currency")
 	protected String currency;
 
+	public AmountType() {
+	}
+
+	public AmountType(BigDecimal value, String currency) {
+		super();
+		this.value = value;
+		this.currency = currency;
+	}
+
+
+
 	/**
 	 * Gets the value of the value property.
 	 * 

@@ -70,7 +70,7 @@ public class RTSISubmitFraudReportType {
 	@JsonProperty(value = "ReimbursementAttribute")
 	protected String reimbursementAttribute;
 	@JsonProperty(value = "CPD")
-	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	@JsonFormat(pattern = "yyyy-MM-dd",
 			shape = JsonFormat.Shape.STRING,
 			locale = "pt-BR",
 			timezone = "Brazil/East")
@@ -130,7 +130,7 @@ public class RTSISubmitFraudReportType {
 	@JsonProperty(value = "CardholderPhoneNum")
 	protected String cardholderPhoneNum;
 	@JsonProperty(value = "MailDate")
-	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",
 			shape = JsonFormat.Shape.STRING,
 			locale = "pt-BR",
 			timezone = "Brazil/East")
@@ -150,7 +150,7 @@ public class RTSISubmitFraudReportType {
 	@JsonProperty(value = "CardExpirationDate")
 	protected String cardExpirationDate;
 	@JsonProperty(value = "CardholderNotificationDate")
-	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",
 			shape = JsonFormat.Shape.STRING,
 			locale = "pt-BR",
 			timezone = "Brazil/East")
@@ -159,6 +159,122 @@ public class RTSISubmitFraudReportType {
 	protected Boolean domesticProcessingInd;
 	@JsonProperty(value = "AgentUniqueId")
 	protected String agentUniqueId;
+	
+
+	public RTSISubmitFraudReportType() {
+	}
+	
+	public RTSISubmitFraudReportType(Long visaCaseNumber, String fraudType, FraudTypeCategoryType fraudTypeCategory,
+			String accountNumber, String trn, String consumerAccountNumber, String checkNumber, String token,
+			String tokenAssuranceLevel, String onUsAffiliation, TransactionType transaction, String merchantName,
+			String merchantCity, String merchantCountrySubEntityCode, String merchantCountryCode,
+			String merchantPostalCode, String mcc, String arn, String networkID, String acquirerBIN,
+			String retrievalReferenceNumber, String systemTraceAuditNumber, String ecmoto,
+			String reimbursementAttribute, Date cpd, ManualTranCatType transactionCategory, String acquirerBID,
+			String posEntryModeCd, String catInd, String posTermCapability, String cardAcceptorTermId,
+			String excludedTranIdReason, String cardAcceptorId, AmountType cashbackAmount, String cardholderIdMethod,
+			String authCode, String travelAgencyId, Integer notificationCd, String issuerGenAuth,
+			Boolean autoAssignAccountSequenceNumInd, BigInteger acctSeqNum, Boolean closeFraudCaseInd,
+			String cardholderFirstName, String cardholderLastName, String cardholderMiddleInitial,
+			String cardholderAddress1, String cardholderAddress2, String cardholderCity, String cardholderPostalCode,
+			String cardholderCountrySubEntityCode, String cardholderCountryCode, String cardholderPhoneNum,
+			Date mailDate, String validFrom, String mailCity, String mailStateCode, String mailPostalCode,
+			String cardCapability, String fraudInvestigativeStatus, String cardExpirationDate,
+			Date cardholderNotificationDate, Boolean domesticProcessingInd, String agentUniqueId) {
+		super();
+		this.visaCaseNumber = visaCaseNumber;
+		this.fraudType = fraudType;
+		this.fraudTypeCategory = fraudTypeCategory;
+		this.accountNumber = accountNumber;
+		this.trn = trn;
+		this.consumerAccountNumber = consumerAccountNumber;
+		this.checkNumber = checkNumber;
+		this.token = token;
+		this.tokenAssuranceLevel = tokenAssuranceLevel;
+		this.onUsAffiliation = onUsAffiliation;
+		this.transaction = transaction;
+		this.merchantName = merchantName;
+		this.merchantCity = merchantCity;
+		this.merchantCountrySubEntityCode = merchantCountrySubEntityCode;
+		this.merchantCountryCode = merchantCountryCode;
+		this.merchantPostalCode = merchantPostalCode;
+		this.mcc = mcc;
+		this.arn = arn;
+		this.networkID = networkID;
+		this.acquirerBIN = acquirerBIN;
+		this.retrievalReferenceNumber = retrievalReferenceNumber;
+		this.systemTraceAuditNumber = systemTraceAuditNumber;
+		this.ecmoto = ecmoto;
+		this.reimbursementAttribute = reimbursementAttribute;
+		this.cpd = cpd;
+		this.transactionCategory = transactionCategory;
+		this.acquirerBID = acquirerBID;
+		this.posEntryModeCd = posEntryModeCd;
+		this.catInd = catInd;
+		this.posTermCapability = posTermCapability;
+		this.cardAcceptorTermId = cardAcceptorTermId;
+		this.excludedTranIdReason = excludedTranIdReason;
+		this.cardAcceptorId = cardAcceptorId;
+		this.cashbackAmount = cashbackAmount;
+		this.cardholderIdMethod = cardholderIdMethod;
+		this.authCode = authCode;
+		this.travelAgencyId = travelAgencyId;
+		this.notificationCd = notificationCd;
+		this.issuerGenAuth = issuerGenAuth;
+		this.autoAssignAccountSequenceNumInd = autoAssignAccountSequenceNumInd;
+		this.acctSeqNum = acctSeqNum;
+		this.closeFraudCaseInd = closeFraudCaseInd;
+		this.cardholderFirstName = cardholderFirstName;
+		this.cardholderLastName = cardholderLastName;
+		this.cardholderMiddleInitial = cardholderMiddleInitial;
+		this.cardholderAddress1 = cardholderAddress1;
+		this.cardholderAddress2 = cardholderAddress2;
+		this.cardholderCity = cardholderCity;
+		this.cardholderPostalCode = cardholderPostalCode;
+		this.cardholderCountrySubEntityCode = cardholderCountrySubEntityCode;
+		this.cardholderCountryCode = cardholderCountryCode;
+		this.cardholderPhoneNum = cardholderPhoneNum;
+		this.mailDate = mailDate;
+		this.validFrom = validFrom;
+		this.mailCity = mailCity;
+		this.mailStateCode = mailStateCode;
+		this.mailPostalCode = mailPostalCode;
+		this.cardCapability = cardCapability;
+		this.fraudInvestigativeStatus = fraudInvestigativeStatus;
+		this.cardExpirationDate = cardExpirationDate;
+		this.cardholderNotificationDate = cardholderNotificationDate;
+		this.domesticProcessingInd = domesticProcessingInd;
+		this.agentUniqueId = agentUniqueId;
+	}
+
+
+	public RTSISubmitFraudReportType(Long visaCaseNumber, String fraudType, TransactionType transaction,
+			String merchantName, String merchantCity, String merchantCountryCode, String mcc, String arn,
+			String networkID, String retrievalReferenceNumber, Date cpd) {
+		super();
+		this.visaCaseNumber = visaCaseNumber;
+		this.fraudType = fraudType;
+		this.transaction = transaction;
+		this.merchantName = merchantName;
+		this.merchantCity = merchantCity;
+		this.merchantCountryCode = merchantCountryCode;
+		this.mcc = mcc;
+		this.arn = arn;
+		this.networkID = networkID;
+		this.retrievalReferenceNumber = retrievalReferenceNumber;
+		this.cpd = cpd;
+	}
+
+	public RTSISubmitFraudReportType(Long visaCaseNumber, String fraudType, TransactionType transaction,
+			AmountType cashbackAmount) {
+		super();
+		this.visaCaseNumber = visaCaseNumber;
+		this.fraudType = fraudType;
+		this.transaction = transaction;
+		this.cashbackAmount = cashbackAmount;
+	}
+
+
 
 	/**
 	 * Gets the value of the visaCaseNumber property.

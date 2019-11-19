@@ -34,6 +34,35 @@ public class TransactionType {
 	protected AmountType destAmt;
 	@JsonProperty("id")
 	protected String id;
+	
+
+	public TransactionType() {
+	}
+
+	public TransactionType(Date tranDate, AmountType amount, AmountType srcAmt, AmountType destAmt, String id) {
+		super();
+		this.tranDate = tranDate;
+		this.amount = amount;
+		this.srcAmt = srcAmt;
+		this.destAmt = destAmt;
+		this.id = id;
+	}
+
+	public TransactionType(Date tranDate, AmountType amount) {
+		super();
+		this.tranDate = tranDate;
+		this.amount = amount;
+	}
+
+	public TransactionType(Date tranDate, AmountType amount, AmountType srcAmt, AmountType destAmt) {
+		super();
+		this.tranDate = tranDate;
+		this.amount = amount;
+		this.srcAmt = srcAmt;
+		this.destAmt = destAmt;
+	}
+
+
 
 	/**
 	 * Transaction date or purchase date. (yyyy-mm-dd)

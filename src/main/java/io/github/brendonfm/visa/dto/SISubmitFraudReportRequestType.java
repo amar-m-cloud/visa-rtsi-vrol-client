@@ -22,6 +22,15 @@ public class SISubmitFraudReportRequestType extends RequestBodyType {
 	@JsonProperty(value = "RequestData", required = true)
 	protected RTSISubmitFraudReportType requestData;
 
+	public SISubmitFraudReportRequestType() {
+	}
+
+	public SISubmitFraudReportRequestType(RequestHeaderType requestHeader, RTSISubmitFraudReportType requestData) {
+		super();
+		this.requestHeader = requestHeader;
+		this.requestData = requestData;
+	}
+
 	/**
 	 * Gets the value of the requestHeader property.
 	 * 

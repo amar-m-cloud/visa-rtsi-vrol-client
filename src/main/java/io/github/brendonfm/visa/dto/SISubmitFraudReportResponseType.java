@@ -18,12 +18,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class SISubmitFraudReportResponseType extends ResponseBodyType {
+public class SISubmitFraudReportResponseType /*extends ResponseBodyType*/ {
 
 	@JsonProperty(value = "Status")
 	protected List<StatusType> status;
-	@JsonProperty(value = "ResponseData", required = true)
+	@JsonProperty(value = "ResponseData")
 	protected SubmitFraudReportResponseType responseData;
+	
+	
+
+	public SISubmitFraudReportResponseType() {
+	}
+	
+	
+
+	public SISubmitFraudReportResponseType(List<StatusType> status, SubmitFraudReportResponseType responseData) {
+		super();
+		this.status = status;
+		this.responseData = responseData;
+	}
+
+
 
 	/**
 	 * Gets the value of the status property.

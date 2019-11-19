@@ -23,20 +23,20 @@ public interface Visa {
 
 	@POST
 	@Path("/submitFraudReport")
-	@Consumes("application/json;charset=utf-8")
-	@Produces("application/json;charset=utf-8")
+	@Consumes("application/json")
+	@Produces("application/json")
 	SISubmitFraudReportResponseType submitFraudReport(SISubmitFraudReportRequestType request);
 
 	@POST
 	@Path("/submitTranInquiry")
-	@Consumes("application/json;charset=utf-8")
-	@Produces("application/json;charset=utf-8")
+	@Consumes("application/json")
+	@Produces("application/json")
 	SISubmitTranInquiryResponseType submitTranInquiry(SISubmitTranInquiryRequestType request);
 	
 	@POST
 	@Path("/submitDisputeQuestionnaire")
-	@Consumes("application/json;charset=utf-8")
-	@Produces("application/json;charset=utf-8")
+	@Consumes("application/json")
+	@Produces("application/json")
 	SISubmitDisputeQuestionnaireResponseType submitDisputeQuestionnaire(SISubmitDisputeQuestionnaireRequestType request);
 
 }
