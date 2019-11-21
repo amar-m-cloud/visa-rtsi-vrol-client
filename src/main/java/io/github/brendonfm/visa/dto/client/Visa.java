@@ -22,21 +22,22 @@ import io.github.brendonfm.visa.dto.SISubmitTranInquiryResponseType;
 public interface Visa {
 
 	@POST
+	@Path("/submitTranInquiry")
+	@Consumes("application/json;charset=utf-8")
+	@Produces("application/json;charset=utf-8")
+	SISubmitTranInquiryResponseType submitTranInquiry(SISubmitTranInquiryRequestType request);
+
+	@POST
 	@Path("/submitFraudReport")
 	@Consumes("application/json;charset=utf-8")
 	@Produces("application/json;charset=utf-8")
 	SISubmitFraudReportResponseType submitFraudReport(SISubmitFraudReportRequestType request);
 
 	@POST
-	@Path("/submitTranInquiry")
-	@Consumes("application/json;charset=utf-8")
-	@Produces("application/json;charset=utf-8")
-	SISubmitTranInquiryResponseType submitTranInquiry(SISubmitTranInquiryRequestType request);
-	
-	@POST
 	@Path("/submitDisputeQuestionnaire")
 	@Consumes("application/json;charset=utf-8")
 	@Produces("application/json;charset=utf-8")
-	SISubmitDisputeQuestionnaireResponseType submitDisputeQuestionnaire(SISubmitDisputeQuestionnaireRequestType request);
+	SISubmitDisputeQuestionnaireResponseType
+			submitDisputeQuestionnaire(SISubmitDisputeQuestionnaireRequestType request);
 
 }
