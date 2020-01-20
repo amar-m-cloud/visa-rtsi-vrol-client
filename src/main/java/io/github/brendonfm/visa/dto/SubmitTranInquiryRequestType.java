@@ -38,13 +38,13 @@ public class SubmitTranInquiryRequestType {
 	@JsonProperty("TRN")
 	protected String trn;
 	@JsonProperty("StartDate")
-	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	@JsonFormat(pattern = "yyyy-MM-dd",
 			shape = JsonFormat.Shape.STRING,
 			locale = "pt-BR",
 			timezone = "Brazil/East")
 	protected Date startDate;
 	@JsonProperty("EndDate")
-	@JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
+	@JsonFormat(pattern = "yyyy-MM-dd",
 			shape = JsonFormat.Shape.STRING,
 			locale = "pt-BR",
 			timezone = "Brazil/East")

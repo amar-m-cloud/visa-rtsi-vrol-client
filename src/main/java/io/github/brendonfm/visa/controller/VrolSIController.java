@@ -4,6 +4,8 @@
 
 package io.github.brendonfm.visa.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -12,11 +14,17 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
+import org.apache.cxf.jaxrs.ext.multipart.Attachment;
+import org.apache.cxf.jaxrs.ext.multipart.ContentDisposition;
+import org.apache.cxf.jaxrs.ext.multipart.MultipartBody;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import io.github.brendonfm.visa.dto.SISubmitDisputeQuestionnaireRequestType;
 import io.github.brendonfm.visa.dto.SISubmitDisputeQuestionnaireResponseType;
@@ -25,6 +33,8 @@ import io.github.brendonfm.visa.dto.SISubmitFraudReportResponseType;
 import io.github.brendonfm.visa.dto.SISubmitTranInquiryRequestType;
 import io.github.brendonfm.visa.dto.SISubmitTranInquiryResponseType;
 import io.github.brendonfm.visa.dto.client.VisaClientFactory;
+import io.github.brendonfm.visa.dto.client.VisaClientFactoryMultipart;
+
 
 /**
  * @author github.com/brendonfm
@@ -99,14 +109,24 @@ public class VrolSIController {
 	
 	@PostMapping("submitDisputeQuestionnaire")
 	public SISubmitDisputeQuestionnaireResponseType submitDisputeQuestionnaire(
-			@RequestBody final SISubmitDisputeQuestionnaireRequestType requestDto) throws KeyManagementException, 
+			@RequestBody final SISubmitDisputeQuestionnaireRequestType request) throws KeyManagementException, 
 			UnrecoverableKeyException, 
 			KeyStoreException, 
 			NoSuchAlgorithmException, 
 			CertificateException, 
 			FileNotFoundException, 
-			IOException {
-		return VisaClientFactory
+			IOException {	
+		
+		ObjectWriter ow = new ObjectMapper().writer();
+		ow.writeValue(new File("/Users/evelynvieira/Desktop/file/submitDisputeQuestionnaire.json"), request);
+		File file = new File("/Users/evelynvieira/Desktop/file/submitDisputeQuestionnaire.json");
+
+		
+		ContentDisposition cd = new ContentDisposition("multipart/form-data;name=request;filename=submitDisputeQuestionnaire.json");
+		Attachment att = new Attachment("request", new FileInputStream(file), cd);
+		MultipartBody body = new MultipartBody(att);
+		
+		return VisaClientFactoryMultipart
 				.create(baseUrl,
 						connectionTimeoutLimit,
 						clientKeyStorePath,
@@ -116,7 +136,7 @@ public class VrolSIController {
 						username,
 						password,
 						certificatePassword)
-				.submitDisputeQuestionnaire(requestDto);
-	}
+				.submitDisputeQuestionnaire(body);
+		}
 
 }

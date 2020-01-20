@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -16,8 +18,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class SISubmitDisputeQuestionnaireRequestType extends RequestBodyType {
+public class SISubmitDisputeQuestionnaireRequestType extends RequestBodyType implements Serializable{
 
+	private static final long serialVersionUID = -1790118314861624677L;
+	
 	@JsonProperty("RequestHeader")
     protected RequestHeaderType requestHeader;
 	@JsonProperty("RequestData")
@@ -70,5 +74,42 @@ public class SISubmitDisputeQuestionnaireRequestType extends RequestBodyType {
     public void setRequestData(SubmitDisputeQuestionnaireRequestType value) {
         this.requestData = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((requestData == null) ? 0 : requestData.hashCode());
+		result = prime * result + ((requestHeader == null) ? 0 : requestHeader.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SISubmitDisputeQuestionnaireRequestType other = (SISubmitDisputeQuestionnaireRequestType) obj;
+		if (requestData == null) {
+			if (other.requestData != null)
+				return false;
+		} else if (!requestData.equals(other.requestData))
+			return false;
+		if (requestHeader == null) {
+			if (other.requestHeader != null)
+				return false;
+		} else if (!requestHeader.equals(other.requestHeader))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SISubmitDisputeQuestionnaireRequestType [requestHeader=" + requestHeader + ", requestData="
+				+ requestData + "]";
+	}
 
 }

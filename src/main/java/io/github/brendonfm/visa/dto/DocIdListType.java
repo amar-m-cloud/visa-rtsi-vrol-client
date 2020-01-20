@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +19,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DocIdListType {
+public class DocIdListType implements Serializable {
 
-   @JsonProperty("DocId")
+	private static final long serialVersionUID = 6901007696135324640L;
+	
+	@JsonProperty("DocId")
     protected List<Long> docId;
 
     /**
@@ -51,5 +54,37 @@ public class DocIdListType {
         }
         return this.docId;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((docId == null) ? 0 : docId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DocIdListType other = (DocIdListType) obj;
+		if (docId == null) {
+			if (other.docId != null)
+				return false;
+		} else if (!docId.equals(other.docId))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DocIdListType [docId=" + docId + "]";
+	}
+    
+    
 
 }

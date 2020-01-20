@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -15,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class IssuerAcquirerContactInfoType {
+public class IssuerAcquirerContactInfoType implements Serializable {
 
-    @JsonProperty("ContactName")
+	private static final long serialVersionUID = 7833499468513054298L;
+	
+	@JsonProperty("ContactName")
     protected String contactName;
     @JsonProperty("ContactPhone")
     protected String contactPhone;
@@ -147,5 +151,63 @@ public class IssuerAcquirerContactInfoType {
     public void setContactEmail(String value) {
         this.contactEmail = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((contactEmail == null) ? 0 : contactEmail.hashCode());
+		result = prime * result + ((contactFax == null) ? 0 : contactFax.hashCode());
+		result = prime * result + ((contactName == null) ? 0 : contactName.hashCode());
+		result = prime * result + ((contactOther == null) ? 0 : contactOther.hashCode());
+		result = prime * result + ((contactPhone == null) ? 0 : contactPhone.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IssuerAcquirerContactInfoType other = (IssuerAcquirerContactInfoType) obj;
+		if (contactEmail == null) {
+			if (other.contactEmail != null)
+				return false;
+		} else if (!contactEmail.equals(other.contactEmail))
+			return false;
+		if (contactFax == null) {
+			if (other.contactFax != null)
+				return false;
+		} else if (!contactFax.equals(other.contactFax))
+			return false;
+		if (contactName == null) {
+			if (other.contactName != null)
+				return false;
+		} else if (!contactName.equals(other.contactName))
+			return false;
+		if (contactOther == null) {
+			if (other.contactOther != null)
+				return false;
+		} else if (!contactOther.equals(other.contactOther))
+			return false;
+		if (contactPhone == null) {
+			if (other.contactPhone != null)
+				return false;
+		} else if (!contactPhone.equals(other.contactPhone))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "IssuerAcquirerContactInfoType [contactName=" + contactName + ", contactPhone=" + contactPhone
+				+ ", contactFax=" + contactFax + ", contactOther=" + contactOther + ", contactEmail=" + contactEmail
+				+ "]";
+	}
+    
+    
 
 }

@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,9 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DisputeAuthorizationType {
+public class DisputeAuthorizationType implements Serializable {
 
-    @JsonProperty("EFLDate")
+	private static final long serialVersionUID = 540151413146740006L;
+	
+	@JsonProperty("EFLDate")
     @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
 	shape = JsonFormat.Shape.STRING,
 	locale = "pt-BR",
@@ -112,5 +115,49 @@ public class DisputeAuthorizationType {
     public void setExplanationOfAuthorizationsPresented(String value) {
         this.explanationOfAuthorizationsPresented = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((eflDate == null) ? 0 : eflDate.hashCode());
+		result = prime * result + ((explanationOfAuthorizationsPresented == null) ? 0
+				: explanationOfAuthorizationsPresented.hashCode());
+		result = prime * result + ((region == null) ? 0 : region.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DisputeAuthorizationType other = (DisputeAuthorizationType) obj;
+		if (eflDate == null) {
+			if (other.eflDate != null)
+				return false;
+		} else if (!eflDate.equals(other.eflDate))
+			return false;
+		if (explanationOfAuthorizationsPresented == null) {
+			if (other.explanationOfAuthorizationsPresented != null)
+				return false;
+		} else if (!explanationOfAuthorizationsPresented.equals(other.explanationOfAuthorizationsPresented))
+			return false;
+		if (region == null) {
+			if (other.region != null)
+				return false;
+		} else if (!region.equals(other.region))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DisputeAuthorizationType [eflDate=" + eflDate + ", region=" + region
+				+ ", explanationOfAuthorizationsPresented=" + explanationOfAuthorizationsPresented + "]";
+	}
 
 }

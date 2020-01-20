@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -15,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class RequestHeaderType extends RequestType {
+public class RequestHeaderType extends RequestType implements Serializable {
+
+	private static final long serialVersionUID = -6539049588460006007L;
 
 	@JsonProperty("User")
 	protected UserType user;
@@ -57,6 +61,39 @@ public class RequestHeaderType extends RequestType {
 	 */
 	public void setMemberRole(final MemberRoleType value) {
 		this.memberRole = value;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((memberRole == null) ? 0 : memberRole.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RequestHeaderType other = (RequestHeaderType) obj;
+		if (memberRole != other.memberRole)
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RequestHeaderType [user=" + user + ", memberRole=" + memberRole + "]";
 	}
 
 }

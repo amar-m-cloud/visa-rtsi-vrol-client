@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -18,9 +19,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DisputeEFLInfoType {
+public class DisputeEFLInfoType implements Serializable {
 
-    @JsonProperty("EFLActionCode")
+	private static final long serialVersionUID = 748899672311853471L;
+	
+	@JsonProperty("EFLActionCode")
     protected EFLActionCodeType eflActionCode;
     @JsonProperty("PurgeOptions")
     protected PurgeOptionsType purgeOptions;
@@ -124,5 +127,49 @@ public class DisputeEFLInfoType {
     public void setCardRecoveryBulletinRegions(CRBRegionType value) {
         this.cardRecoveryBulletinRegions = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cardRecoveryBulletinRegions == null) ? 0 : cardRecoveryBulletinRegions.hashCode());
+		result = prime * result + ((eflActionCode == null) ? 0 : eflActionCode.hashCode());
+		result = prime * result + ((purgeNoOfDays == null) ? 0 : purgeNoOfDays.hashCode());
+		result = prime * result + ((purgeOptions == null) ? 0 : purgeOptions.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DisputeEFLInfoType other = (DisputeEFLInfoType) obj;
+		if (cardRecoveryBulletinRegions == null) {
+			if (other.cardRecoveryBulletinRegions != null)
+				return false;
+		} else if (!cardRecoveryBulletinRegions.equals(other.cardRecoveryBulletinRegions))
+			return false;
+		if (eflActionCode != other.eflActionCode)
+			return false;
+		if (purgeNoOfDays == null) {
+			if (other.purgeNoOfDays != null)
+				return false;
+		} else if (!purgeNoOfDays.equals(other.purgeNoOfDays))
+			return false;
+		if (purgeOptions != other.purgeOptions)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DisputeEFLInfoType [eflActionCode=" + eflActionCode + ", purgeOptions=" + purgeOptions
+				+ ", purgeNoOfDays=" + purgeNoOfDays + ", cardRecoveryBulletinRegions=" + cardRecoveryBulletinRegions
+				+ "]";
+	}
 
 }

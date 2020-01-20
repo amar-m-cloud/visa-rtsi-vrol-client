@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -20,9 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class SubmitDisputeQuestionnaireRequestType {
+public class SubmitDisputeQuestionnaireRequestType implements Serializable {
 
-    @JsonProperty("DisputeId")
+	private static final long serialVersionUID = -4249834699929530927L;
+	
+	@JsonProperty("DisputeId")
     protected long disputeId;
     @JsonProperty("VisaCaseNumber")
     protected Long visaCaseNumber;
@@ -616,5 +619,168 @@ public class SubmitDisputeQuestionnaireRequestType {
     public void setIsParcelado(YNType value) {
         this.isParcelado = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((action == null) ? 0 : action.hashCode());
+		result = prime * result + ((authorization == null) ? 0 : authorization.hashCode());
+		result = prime * result + ((consumer == null) ? 0 : consumer.hashCode());
+		result = prime * result + ((createDisputeFinancial == null) ? 0 : createDisputeFinancial.hashCode());
+		result = prime * result + ((disputeAmount == null) ? 0 : disputeAmount.hashCode());
+		result = prime * result + ((disputeAmountChangeReason == null) ? 0 : disputeAmountChangeReason.hashCode());
+		result = prime * result + ((disputeAttachmentDescriptor == null) ? 0 : disputeAttachmentDescriptor.hashCode());
+		result = prime * result + ((disputeCardholderInfo == null) ? 0 : disputeCardholderInfo.hashCode());
+		result = prime * result + ((disputeEFLInfo == null) ? 0 : disputeEFLInfo.hashCode());
+		result = prime * result + ((disputeFraudInfo == null) ? 0 : disputeFraudInfo.hashCode());
+		result = prime * result + (int) (disputeId ^ (disputeId >>> 32));
+		result = prime * result + ((docIdList == null) ? 0 : docIdList.hashCode());
+		result = prime * result + ((exceptionCPD == null) ? 0 : exceptionCPD.hashCode());
+		result = prime * result
+				+ ((explanationOfCreditPresented == null) ? 0 : explanationOfCreditPresented.hashCode());
+		result = prime * result + ((fraud == null) ? 0 : fraud.hashCode());
+		result = prime * result + ((isParcelado == null) ? 0 : isParcelado.hashCode());
+		result = prime * result + ((issuerAcquirerContactInfo == null) ? 0 : issuerAcquirerContactInfo.hashCode());
+		result = prime * result + ((memberCaseNumber == null) ? 0 : memberCaseNumber.hashCode());
+		result = prime * result + ((note == null) ? 0 : note.hashCode());
+		result = prime * result + ((processingError == null) ? 0 : processingError.hashCode());
+		result = prime * result + ((supplyDocInd == null) ? 0 : supplyDocInd.hashCode());
+		result = prime * result + ((transactionMessageFormat == null) ? 0 : transactionMessageFormat.hashCode());
+		result = prime * result + ((visaCaseNumber == null) ? 0 : visaCaseNumber.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SubmitDisputeQuestionnaireRequestType other = (SubmitDisputeQuestionnaireRequestType) obj;
+		if (action != other.action)
+			return false;
+		if (authorization == null) {
+			if (other.authorization != null)
+				return false;
+		} else if (!authorization.equals(other.authorization))
+			return false;
+		if (consumer == null) {
+			if (other.consumer != null)
+				return false;
+		} else if (!consumer.equals(other.consumer))
+			return false;
+		if (createDisputeFinancial != other.createDisputeFinancial)
+			return false;
+		if (disputeAmount == null) {
+			if (other.disputeAmount != null)
+				return false;
+		} else if (!disputeAmount.equals(other.disputeAmount))
+			return false;
+		if (disputeAmountChangeReason == null) {
+			if (other.disputeAmountChangeReason != null)
+				return false;
+		} else if (!disputeAmountChangeReason.equals(other.disputeAmountChangeReason))
+			return false;
+		if (disputeAttachmentDescriptor == null) {
+			if (other.disputeAttachmentDescriptor != null)
+				return false;
+		} else if (!disputeAttachmentDescriptor.equals(other.disputeAttachmentDescriptor))
+			return false;
+		if (disputeCardholderInfo == null) {
+			if (other.disputeCardholderInfo != null)
+				return false;
+		} else if (!disputeCardholderInfo.equals(other.disputeCardholderInfo))
+			return false;
+		if (disputeEFLInfo == null) {
+			if (other.disputeEFLInfo != null)
+				return false;
+		} else if (!disputeEFLInfo.equals(other.disputeEFLInfo))
+			return false;
+		if (disputeFraudInfo == null) {
+			if (other.disputeFraudInfo != null)
+				return false;
+		} else if (!disputeFraudInfo.equals(other.disputeFraudInfo))
+			return false;
+		if (disputeId != other.disputeId)
+			return false;
+		if (docIdList == null) {
+			if (other.docIdList != null)
+				return false;
+		} else if (!docIdList.equals(other.docIdList))
+			return false;
+		if (exceptionCPD == null) {
+			if (other.exceptionCPD != null)
+				return false;
+		} else if (!exceptionCPD.equals(other.exceptionCPD))
+			return false;
+		if (explanationOfCreditPresented == null) {
+			if (other.explanationOfCreditPresented != null)
+				return false;
+		} else if (!explanationOfCreditPresented.equals(other.explanationOfCreditPresented))
+			return false;
+		if (fraud == null) {
+			if (other.fraud != null)
+				return false;
+		} else if (!fraud.equals(other.fraud))
+			return false;
+		if (isParcelado != other.isParcelado)
+			return false;
+		if (issuerAcquirerContactInfo == null) {
+			if (other.issuerAcquirerContactInfo != null)
+				return false;
+		} else if (!issuerAcquirerContactInfo.equals(other.issuerAcquirerContactInfo))
+			return false;
+		if (memberCaseNumber == null) {
+			if (other.memberCaseNumber != null)
+				return false;
+		} else if (!memberCaseNumber.equals(other.memberCaseNumber))
+			return false;
+		if (note == null) {
+			if (other.note != null)
+				return false;
+		} else if (!note.equals(other.note))
+			return false;
+		if (processingError == null) {
+			if (other.processingError != null)
+				return false;
+		} else if (!processingError.equals(other.processingError))
+			return false;
+		if (supplyDocInd == null) {
+			if (other.supplyDocInd != null)
+				return false;
+		} else if (!supplyDocInd.equals(other.supplyDocInd))
+			return false;
+		if (transactionMessageFormat == null) {
+			if (other.transactionMessageFormat != null)
+				return false;
+		} else if (!transactionMessageFormat.equals(other.transactionMessageFormat))
+			return false;
+		if (visaCaseNumber == null) {
+			if (other.visaCaseNumber != null)
+				return false;
+		} else if (!visaCaseNumber.equals(other.visaCaseNumber))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SubmitDisputeQuestionnaireRequestType [disputeId=" + disputeId + ", visaCaseNumber=" + visaCaseNumber
+				+ ", memberCaseNumber=" + memberCaseNumber + ", disputeAmount=" + disputeAmount + ", exceptionCPD="
+				+ exceptionCPD + ", disputeCardholderInfo=" + disputeCardholderInfo + ", note=" + note
+				+ ", disputeFraudInfo=" + disputeFraudInfo + ", disputeEFLInfo=" + disputeEFLInfo
+				+ ", disputeAmountChangeReason=" + disputeAmountChangeReason + ", createDisputeFinancial="
+				+ createDisputeFinancial + ", transactionMessageFormat=" + transactionMessageFormat
+				+ ", explanationOfCreditPresented=" + explanationOfCreditPresented + ", authorization=" + authorization
+				+ ", fraud=" + fraud + ", processingError=" + processingError + ", consumer=" + consumer
+				+ ", issuerAcquirerContactInfo=" + issuerAcquirerContactInfo + ", disputeAttachmentDescriptor="
+				+ disputeAttachmentDescriptor + ", docIdList=" + docIdList + ", action=" + action + ", supplyDocInd="
+				+ supplyDocInd + ", isParcelado=" + isParcelado + "]";
+	}
+    
+    
 
 }

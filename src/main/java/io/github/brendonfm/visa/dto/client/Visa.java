@@ -9,12 +9,11 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import io.github.brendonfm.visa.dto.SISubmitDisputeQuestionnaireRequestType;
-import io.github.brendonfm.visa.dto.SISubmitDisputeQuestionnaireResponseType;
 import io.github.brendonfm.visa.dto.SISubmitFraudReportRequestType;
 import io.github.brendonfm.visa.dto.SISubmitFraudReportResponseType;
 import io.github.brendonfm.visa.dto.SISubmitTranInquiryRequestType;
 import io.github.brendonfm.visa.dto.SISubmitTranInquiryResponseType;
+
 
 /**
  * @author github.com/brendonfm
@@ -32,11 +31,5 @@ public interface Visa {
 	@Consumes("application/json")
 	@Produces("application/json")
 	SISubmitTranInquiryResponseType submitTranInquiry(SISubmitTranInquiryRequestType request);
-	
-	@POST
-	@Path("/submitDisputeQuestionnaire")
-	@Consumes("application/json")
-	@Produces("application/json")
-	SISubmitDisputeQuestionnaireResponseType submitDisputeQuestionnaire(SISubmitDisputeQuestionnaireRequestType request);
 
 }

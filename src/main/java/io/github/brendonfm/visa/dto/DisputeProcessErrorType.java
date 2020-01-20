@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DisputeProcessErrorType {
+public class DisputeProcessErrorType implements Serializable {
 
-    @JsonProperty("WhatIncorrectAboutTransaction")
+	private static final long serialVersionUID = 4543684271331310154L;
+	
+	@JsonProperty("WhatIncorrectAboutTransaction")
     protected WhatIncorrectAboutTransactionType whatIncorrectAboutTransaction;
     @JsonProperty("AccountStatus")
     protected AccountStatusType accountStatus;
@@ -864,5 +867,203 @@ public class DisputeProcessErrorType {
     public void setARN(String value) {
         this.arn = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accountStatus == null) ? 0 : accountStatus.hashCode());
+		result = prime * result + ((arn == null) ? 0 : arn.hashCode());
+		result = prime * result
+				+ ((attemptToResolveProhLocalLaw == null) ? 0 : attemptToResolveProhLocalLaw.hashCode());
+		result = prime * result + ((authorizationRequestDeclinedValidDataInd == null) ? 0
+				: authorizationRequestDeclinedValidDataInd.hashCode());
+		result = prime * result
+				+ ((bothTransactionsOnSameAcctNumberInd == null) ? 0 : bothTransactionsOnSameAcctNumberInd.hashCode());
+		result = prime * result + ((cardholderAttemptToResolve == null) ? 0 : cardholderAttemptToResolve.hashCode());
+		result = prime * result + ((cardholderDidNotAgreeDCC == null) ? 0 : cardholderDidNotAgreeDCC.hashCode());
+		result = prime * result
+				+ ((cardholderReceiptAccountNumber == null) ? 0 : cardholderReceiptAccountNumber.hashCode());
+		result = prime * result + ((cardholderReceiptAmt == null) ? 0 : cardholderReceiptAmt.hashCode());
+		result = prime * result
+				+ ((chipCardContainValidCryptogramInd == null) ? 0 : chipCardContainValidCryptogramInd.hashCode());
+		result = prime * result + ((correctCurrency == null) ? 0 : correctCurrency.hashCode());
+		result = prime * result + ((detailsOfLocalLaw == null) ? 0 : detailsOfLocalLaw.hashCode());
+		result = prime * result + ((duplicateTranId == null) ? 0 : duplicateTranId.hashCode());
+		result = prime * result + ((explainWhyCreditRefundProcessedInError == null) ? 0
+				: explainWhyCreditRefundProcessedInError.hashCode());
+		result = prime * result
+				+ ((explainWhyValidDataInclusionReason == null) ? 0 : explainWhyValidDataInclusionReason.hashCode());
+		result = prime * result + ((incorrectCurrencyReason == null) ? 0 : incorrectCurrencyReason.hashCode());
+		result = prime * result + ((incorrectTransactionId == null) ? 0 : incorrectTransactionId.hashCode());
+		result = prime * result + ((issuerEvidenceMerchantPassedOnFundsInd == null) ? 0
+				: issuerEvidenceMerchantPassedOnFundsInd.hashCode());
+		result = prime * result
+				+ ((issuerMasterFileAccountNumberInd == null) ? 0 : issuerMasterFileAccountNumberInd.hashCode());
+		result = prime * result + ((issuerOrCardholderOtherAcctWithDiffVisaCardInd == null) ? 0
+				: issuerOrCardholderOtherAcctWithDiffVisaCardInd.hashCode());
+		result = prime * result + ((merchantDisputePriceDiffInd == null) ? 0 : merchantDisputePriceDiffInd.hashCode());
+		result = prime * result
+				+ ((otherTranInvolveDiffMerchantInd == null) ? 0 : otherTranInvolveDiffMerchantInd.hashCode());
+		result = prime * result + ((otherTranSameMerchantInd == null) ? 0 : otherTranSameMerchantInd.hashCode());
+		result = prime * result + ((prepaymentBalanceNotPaidInd == null) ? 0 : prepaymentBalanceNotPaidInd.hashCode());
+		result = prime * result
+				+ ((prepaymentPartialTransactionInd == null) ? 0 : prepaymentPartialTransactionInd.hashCode());
+		result = prime * result
+				+ ((processingErrorOtherExplanation == null) ? 0 : processingErrorOtherExplanation.hashCode());
+		result = prime * result
+				+ ((providingPaymentProofOtherMeans == null) ? 0 : providingPaymentProofOtherMeans.hashCode());
+		result = prime * result
+				+ ((receiptAccountNumberMatchInd == null) ? 0 : receiptAccountNumberMatchInd.hashCode());
+		result = prime * result + ((rolTransactionId == null) ? 0 : rolTransactionId.hashCode());
+		result = prime * result + ((transactionCodeIncorrect == null) ? 0 : transactionCodeIncorrect.hashCode());
+		result = prime * result + ((transactionID == null) ? 0 : transactionID.hashCode());
+		result = prime * result
+				+ ((whatIncorrectAboutTransaction == null) ? 0 : whatIncorrectAboutTransaction.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DisputeProcessErrorType other = (DisputeProcessErrorType) obj;
+		if (accountStatus != other.accountStatus)
+			return false;
+		if (arn == null) {
+			if (other.arn != null)
+				return false;
+		} else if (!arn.equals(other.arn))
+			return false;
+		if (attemptToResolveProhLocalLaw != other.attemptToResolveProhLocalLaw)
+			return false;
+		if (authorizationRequestDeclinedValidDataInd == null) {
+			if (other.authorizationRequestDeclinedValidDataInd != null)
+				return false;
+		} else if (!authorizationRequestDeclinedValidDataInd.equals(other.authorizationRequestDeclinedValidDataInd))
+			return false;
+		if (bothTransactionsOnSameAcctNumberInd != other.bothTransactionsOnSameAcctNumberInd)
+			return false;
+		if (cardholderAttemptToResolve != other.cardholderAttemptToResolve)
+			return false;
+		if (cardholderDidNotAgreeDCC != other.cardholderDidNotAgreeDCC)
+			return false;
+		if (cardholderReceiptAccountNumber == null) {
+			if (other.cardholderReceiptAccountNumber != null)
+				return false;
+		} else if (!cardholderReceiptAccountNumber.equals(other.cardholderReceiptAccountNumber))
+			return false;
+		if (cardholderReceiptAmt == null) {
+			if (other.cardholderReceiptAmt != null)
+				return false;
+		} else if (!cardholderReceiptAmt.equals(other.cardholderReceiptAmt))
+			return false;
+		if (chipCardContainValidCryptogramInd != other.chipCardContainValidCryptogramInd)
+			return false;
+		if (correctCurrency == null) {
+			if (other.correctCurrency != null)
+				return false;
+		} else if (!correctCurrency.equals(other.correctCurrency))
+			return false;
+		if (detailsOfLocalLaw == null) {
+			if (other.detailsOfLocalLaw != null)
+				return false;
+		} else if (!detailsOfLocalLaw.equals(other.detailsOfLocalLaw))
+			return false;
+		if (duplicateTranId == null) {
+			if (other.duplicateTranId != null)
+				return false;
+		} else if (!duplicateTranId.equals(other.duplicateTranId))
+			return false;
+		if (explainWhyCreditRefundProcessedInError == null) {
+			if (other.explainWhyCreditRefundProcessedInError != null)
+				return false;
+		} else if (!explainWhyCreditRefundProcessedInError.equals(other.explainWhyCreditRefundProcessedInError))
+			return false;
+		if (explainWhyValidDataInclusionReason == null) {
+			if (other.explainWhyValidDataInclusionReason != null)
+				return false;
+		} else if (!explainWhyValidDataInclusionReason.equals(other.explainWhyValidDataInclusionReason))
+			return false;
+		if (incorrectCurrencyReason != other.incorrectCurrencyReason)
+			return false;
+		if (incorrectTransactionId == null) {
+			if (other.incorrectTransactionId != null)
+				return false;
+		} else if (!incorrectTransactionId.equals(other.incorrectTransactionId))
+			return false;
+		if (issuerEvidenceMerchantPassedOnFundsInd != other.issuerEvidenceMerchantPassedOnFundsInd)
+			return false;
+		if (issuerMasterFileAccountNumberInd != other.issuerMasterFileAccountNumberInd)
+			return false;
+		if (issuerOrCardholderOtherAcctWithDiffVisaCardInd != other.issuerOrCardholderOtherAcctWithDiffVisaCardInd)
+			return false;
+		if (merchantDisputePriceDiffInd != other.merchantDisputePriceDiffInd)
+			return false;
+		if (otherTranInvolveDiffMerchantInd != other.otherTranInvolveDiffMerchantInd)
+			return false;
+		if (otherTranSameMerchantInd != other.otherTranSameMerchantInd)
+			return false;
+		if (prepaymentBalanceNotPaidInd != other.prepaymentBalanceNotPaidInd)
+			return false;
+		if (prepaymentPartialTransactionInd != other.prepaymentPartialTransactionInd)
+			return false;
+		if (processingErrorOtherExplanation == null) {
+			if (other.processingErrorOtherExplanation != null)
+				return false;
+		} else if (!processingErrorOtherExplanation.equals(other.processingErrorOtherExplanation))
+			return false;
+		if (providingPaymentProofOtherMeans != other.providingPaymentProofOtherMeans)
+			return false;
+		if (receiptAccountNumberMatchInd != other.receiptAccountNumberMatchInd)
+			return false;
+		if (rolTransactionId == null) {
+			if (other.rolTransactionId != null)
+				return false;
+		} else if (!rolTransactionId.equals(other.rolTransactionId))
+			return false;
+		if (transactionCodeIncorrect != other.transactionCodeIncorrect)
+			return false;
+		if (transactionID == null) {
+			if (other.transactionID != null)
+				return false;
+		} else if (!transactionID.equals(other.transactionID))
+			return false;
+		if (whatIncorrectAboutTransaction != other.whatIncorrectAboutTransaction)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DisputeProcessErrorType [whatIncorrectAboutTransaction=" + whatIncorrectAboutTransaction
+				+ ", accountStatus=" + accountStatus + ", correctCurrency=" + correctCurrency + ", rolTransactionId="
+				+ rolTransactionId + ", incorrectTransactionId=" + incorrectTransactionId + ", duplicateTranId="
+				+ duplicateTranId + ", transactionCodeIncorrect=" + transactionCodeIncorrect
+				+ ", issuerMasterFileAccountNumberInd=" + issuerMasterFileAccountNumberInd
+				+ ", cardholderReceiptAccountNumber=" + cardholderReceiptAccountNumber
+				+ ", chipCardContainValidCryptogramInd=" + chipCardContainValidCryptogramInd
+				+ ", explainWhyCreditRefundProcessedInError=" + explainWhyCreditRefundProcessedInError
+				+ ", receiptAccountNumberMatchInd=" + receiptAccountNumberMatchInd
+				+ ", prepaymentPartialTransactionInd=" + prepaymentPartialTransactionInd + ", cardholderReceiptAmt="
+				+ cardholderReceiptAmt + ", merchantDisputePriceDiffInd=" + merchantDisputePriceDiffInd
+				+ ", bothTransactionsOnSameAcctNumberInd=" + bothTransactionsOnSameAcctNumberInd
+				+ ", issuerOrCardholderOtherAcctWithDiffVisaCardInd=" + issuerOrCardholderOtherAcctWithDiffVisaCardInd
+				+ ", issuerEvidenceMerchantPassedOnFundsInd=" + issuerEvidenceMerchantPassedOnFundsInd
+				+ ", prepaymentBalanceNotPaidInd=" + prepaymentBalanceNotPaidInd + ", providingPaymentProofOtherMeans="
+				+ providingPaymentProofOtherMeans + ", processingErrorOtherExplanation="
+				+ processingErrorOtherExplanation + ", incorrectCurrencyReason=" + incorrectCurrencyReason
+				+ ", authorizationRequestDeclinedValidDataInd=" + authorizationRequestDeclinedValidDataInd
+				+ ", explainWhyValidDataInclusionReason=" + explainWhyValidDataInclusionReason
+				+ ", cardholderDidNotAgreeDCC=" + cardholderDidNotAgreeDCC + ", cardholderAttemptToResolve="
+				+ cardholderAttemptToResolve + ", attemptToResolveProhLocalLaw=" + attemptToResolveProhLocalLaw
+				+ ", detailsOfLocalLaw=" + detailsOfLocalLaw + ", otherTranInvolveDiffMerchantInd="
+				+ otherTranInvolveDiffMerchantInd + ", otherTranSameMerchantInd=" + otherTranSameMerchantInd
+				+ ", transactionID=" + transactionID + ", arn=" + arn + "]";
+	}
 
 }

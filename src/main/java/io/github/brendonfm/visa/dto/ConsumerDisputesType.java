@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -19,8 +20,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class ConsumerDisputesType {
+public class ConsumerDisputesType implements Serializable {
 
+	private static final long serialVersionUID = -811761439775273618L;
+	
 	@JsonProperty("DisputeDueTo")
     protected DisputeDueToType disputeDueTo;
 	@JsonProperty("RecurringTransactionInd")
@@ -2805,5 +2808,643 @@ public class ConsumerDisputesType {
     public void setHowTermsOfContractNotHonoredByMerchant(String value) {
         this.howTermsOfContractNotHonoredByMerchant = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accountClosureDate == null) ? 0 : accountClosureDate.hashCode());
+		result = prime * result + ((attemptToResolveExplanation == null) ? 0 : attemptToResolveExplanation.hashCode());
+		result = prime * result
+				+ ((attemptToResolveProhLocalLaw == null) ? 0 : attemptToResolveProhLocalLaw.hashCode());
+		result = prime * result + ((attemptedReturnDate == null) ? 0 : attemptedReturnDate.hashCode());
+		result = prime * result
+				+ ((balanceNotPaidGoodsOrServices == null) ? 0 : balanceNotPaidGoodsOrServices.hashCode());
+		result = prime * result + ((bondAuthLetterOrAdviceDate == null) ? 0 : bondAuthLetterOrAdviceDate.hashCode());
+		result = prime * result + ((cancellationConfirmationInd == null) ? 0 : cancellationConfirmationInd.hashCode());
+		result = prime * result + ((cancellationContact == null) ? 0 : cancellationContact.hashCode());
+		result = prime * result + ((cancellationDate == null) ? 0 : cancellationDate.hashCode());
+		result = prime * result + ((cancellationMethod == null) ? 0 : cancellationMethod.hashCode());
+		result = prime * result
+				+ ((cancellationPolicyProvidedInd == null) ? 0 : cancellationPolicyProvidedInd.hashCode());
+		result = prime * result + ((cardholderAdvisedMerchandiseCounterfeit == null) ? 0
+				: cardholderAdvisedMerchandiseCounterfeit.hashCode());
+		result = prime * result
+				+ ((cardholderAttemptReturnMerchandise == null) ? 0 : cardholderAttemptReturnMerchandise.hashCode());
+		result = prime * result + ((cardholderAttemptToResolve == null) ? 0 : cardholderAttemptToResolve.hashCode());
+		result = prime * result + ((cardholderCancelServices == null) ? 0 : cardholderCancelServices.hashCode());
+		result = prime * result
+				+ ((cardholderCancellationPolicyInd == null) ? 0 : cardholderCancellationPolicyInd.hashCode());
+		result = prime * result + ((cardholderDeceased == null) ? 0 : cardholderDeceased.hashCode());
+		result = prime * result + ((cardholderDidNotAttemptResolveExplanation == null) ? 0
+				: cardholderDidNotAttemptResolveExplanation.hashCode());
+		result = prime * result + ((cardholderFirstNotifiedIssuerDisputeDate == null) ? 0
+				: cardholderFirstNotifiedIssuerDisputeDate.hashCode());
+		result = prime * result + ((cardholderMerchantPreviousNegotiationEvidence == null) ? 0
+				: cardholderMerchantPreviousNegotiationEvidence.hashCode());
+		result = prime * result + ((cardholderReservationConfirmationInd == null) ? 0
+				: cardholderReservationConfirmationInd.hashCode());
+		result = prime * result
+				+ ((cardholderReturnMerchandiseInd == null) ? 0 : cardholderReturnMerchandiseInd.hashCode());
+		result = prime * result
+				+ ((cardholderReturnedMerchandiseDate == null) ? 0 : cardholderReturnedMerchandiseDate.hashCode());
+		result = prime * result
+				+ ((certificationGuaranteedReservation == null) ? 0 : certificationGuaranteedReservation.hashCode());
+		result = prime * result
+				+ ((chReceivedOrExpectedMerchandise == null) ? 0 : chReceivedOrExpectedMerchandise.hashCode());
+		result = prime * result + ((contactMethod == null) ? 0 : contactMethod.hashCode());
+		result = prime * result + ((contactName == null) ? 0 : contactName.hashCode());
+		result = prime * result + ((contractDate == null) ? 0 : contractDate.hashCode());
+		result = prime * result + ((creditVoucherOrTransactionReceiptDate == null) ? 0
+				: creditVoucherOrTransactionReceiptDate.hashCode());
+		result = prime * result
+				+ ((creditVoucherTransactionReceipt == null) ? 0 : creditVoucherTransactionReceipt.hashCode());
+		result = prime * result + ((creditVoucherTransactionReceiptDated == null) ? 0
+				: creditVoucherTransactionReceiptDated.hashCode());
+		result = prime * result + ((damagedOrDefectiveOrderInfo == null) ? 0 : damagedOrDefectiveOrderInfo.hashCode());
+		result = prime * result + ((dateOfService == null) ? 0 : dateOfService.hashCode());
+		result = prime * result + ((deliveryAddress == null) ? 0 : deliveryAddress.hashCode());
+		result = prime * result + ((descCounterfeitMerchandise == null) ? 0 : descCounterfeitMerchandise.hashCode());
+		result = prime * result
+				+ ((descDispOfCounterfeitMerchandise == null) ? 0 : descDispOfCounterfeitMerchandise.hashCode());
+		result = prime * result + ((detailsOfLocalLaw == null) ? 0 : detailsOfLocalLaw.hashCode());
+		result = prime * result + ((didCardholderCancel == null) ? 0 : didCardholderCancel.hashCode());
+		result = prime * result + ((didCardholderCancelPriorExpectedDate == null) ? 0
+				: didCardholderCancelPriorExpectedDate.hashCode());
+		result = prime * result + ((didCardholderPayWorkRedone == null) ? 0 : didCardholderPayWorkRedone.hashCode());
+		result = prime * result + ((disputeDueTo == null) ? 0 : disputeDueTo.hashCode());
+		result = prime * result
+				+ ((disputeInvolveBondingAuthorityInd == null) ? 0 : disputeInvolveBondingAuthorityInd.hashCode());
+		result = prime * result + ((disputeRelateToApprovedMerchantTypes == null) ? 0
+				: disputeRelateToApprovedMerchantTypes.hashCode());
+		result = prime * result + ((disputeRelateToInd == null) ? 0 : disputeRelateToInd.hashCode());
+		result = prime * result + ((disputeRelateToOffpremisesDistanceSellInd == null) ? 0
+				: disputeRelateToOffpremisesDistanceSellInd.hashCode());
+		result = prime * result + ((disputeRelateToQualityInd == null) ? 0 : disputeRelateToQualityInd.hashCode());
+		result = prime * result + ((expectedReceiptDateTime == null) ? 0 : expectedReceiptDateTime.hashCode());
+		result = prime * result + ((explain == null) ? 0 : explain.hashCode());
+		result = prime * result
+				+ ((explainAttemptToResolveWithBondAuth == null) ? 0 : explainAttemptToResolveWithBondAuth.hashCode());
+		result = prime * result
+				+ ((explainCardholderAttemptToResolve == null) ? 0 : explainCardholderAttemptToResolve.hashCode());
+		result = prime * result + ((explainPrevNegotiation == null) ? 0 : explainPrevNegotiation.hashCode());
+		result = prime * result + ((explainWhyWorkRedone == null) ? 0 : explainWhyWorkRedone.hashCode());
+		result = prime * result + ((explanation == null) ? 0 : explanation.hashCode());
+		result = prime * result + ((howChAttemptReturnAndDispOfMerchandise == null) ? 0
+				: howChAttemptReturnAndDispOfMerchandise.hashCode());
+		result = prime * result + ((howMerchandiseOrServiceMisrepresented == null) ? 0
+				: howMerchandiseOrServiceMisrepresented.hashCode());
+		result = prime * result + ((howMerchandiseReturned == null) ? 0 : howMerchandiseReturned.hashCode());
+		result = prime * result + ((howTermsOfContractNotHonoredByMerchant == null) ? 0
+				: howTermsOfContractNotHonoredByMerchant.hashCode());
+		result = prime * result
+				+ ((infoMerchandiseToBeCounterfeit == null) ? 0 : infoMerchandiseToBeCounterfeit.hashCode());
+		result = prime * result + ((instructions == null) ? 0 : instructions.hashCode());
+		result = prime * result + ((lateDeliveryWrongLocation == null) ? 0 : lateDeliveryWrongLocation.hashCode());
+		result = prime * result
+				+ ((merchandiseDeliveredWrongLocation == null) ? 0 : merchandiseDeliveredWrongLocation.hashCode());
+		result = prime * result
+				+ ((merchandiseIdentifiedAsCounterfeit == null) ? 0 : merchandiseIdentifiedAsCounterfeit.hashCode());
+		result = prime * result + ((merchandiseOrServices == null) ? 0 : merchandiseOrServices.hashCode());
+		result = prime * result + ((merchandiseOrServicesDifferFromDescribedOnReceipt == null) ? 0
+				: merchandiseOrServicesDifferFromDescribedOnReceipt.hashCode());
+		result = prime * result + ((merchandiseReceivedDate == null) ? 0 : merchandiseReceivedDate.hashCode());
+		result = prime * result
+				+ ((merchandiseReturnInstructionsInd == null) ? 0 : merchandiseReturnInstructionsInd.hashCode());
+		result = prime * result
+				+ ((merchandiseServiceReceivedDate == null) ? 0 : merchandiseServiceReceivedDate.hashCode());
+		result = prime * result
+				+ ((merchandiseWasCounterfeitDate == null) ? 0 : merchandiseWasCounterfeitDate.hashCode());
+		result = prime * result + ((merchantBillInd == null) ? 0 : merchantBillInd.hashCode());
+		result = prime * result + ((merchantDescDoNotMatchMerchandiseOrServices == null) ? 0
+				: merchantDescDoNotMatchMerchandiseOrServices.hashCode());
+		result = prime * result + ((merchantFacilitiesWithdrawn == null) ? 0 : merchantFacilitiesWithdrawn.hashCode());
+		result = prime * result + ((merchantInLiquidationOrReceivershipInd == null) ? 0
+				: merchantInLiquidationOrReceivershipInd.hashCode());
+		result = prime * result + ((merchantReceivedReturnedMerchandiseDate == null) ? 0
+				: merchantReceivedReturnedMerchandiseDate.hashCode());
+		result = prime * result + ((merchantRefuseAdvise == null) ? 0 : merchantRefuseAdvise.hashCode());
+		result = prime * result + ((merchantResponse == null) ? 0 : merchantResponse.hashCode());
+		result = prime * result + ((mostRecentContactDate == null) ? 0 : mostRecentContactDate.hashCode());
+		result = prime * result
+				+ ((nonPolicyCancellationExplanation == null) ? 0 : nonPolicyCancellationExplanation.hashCode());
+		result = prime * result + ((orderDetailsNotAsDescribed == null) ? 0 : orderDetailsNotAsDescribed.hashCode());
+		result = prime * result + ((originalCreditNotAccepted == null) ? 0 : originalCreditNotAccepted.hashCode());
+		result = prime * result
+				+ ((originalCreditNotAcceptedInd == null) ? 0 : originalCreditNotAcceptedInd.hashCode());
+		result = prime * result + ((originalCreditNotAcceptedProhibitedLawInd == null) ? 0
+				: originalCreditNotAcceptedProhibitedLawInd.hashCode());
+		result = prime * result + ((packageSignedBy == null) ? 0 : packageSignedBy.hashCode());
+		result = prime * result + ((policyInfo == null) ? 0 : policyInfo.hashCode());
+		result = prime * result + ((purchasedInfo == null) ? 0 : purchasedInfo.hashCode());
+		result = prime * result
+				+ ((purchasedInfoAndQualityIssue == null) ? 0 : purchasedInfoAndQualityIssue.hashCode());
+		result = prime * result + ((qualityIssueWith == null) ? 0 : qualityIssueWith.hashCode());
+		result = prime * result + ((recurringTransactionInd == null) ? 0 : recurringTransactionInd.hashCode());
+		result = prime * result
+				+ ((relatedToInstallmentPaymentInd == null) ? 0 : relatedToInstallmentPaymentInd.hashCode());
+		result = prime * result + ((returnAuthorizationNumber == null) ? 0 : returnAuthorizationNumber.hashCode());
+		result = prime * result + ((returnMethod == null) ? 0 : returnMethod.hashCode());
+		result = prime * result
+				+ ((returnedMerchandiseReceivedDate == null) ? 0 : returnedMerchandiseReceivedDate.hashCode());
+		result = prime * result + ((serviceReceivedDate == null) ? 0 : serviceReceivedDate.hashCode());
+		result = prime * result + ((serviceType == null) ? 0 : serviceType.hashCode());
+		result = prime * result + ((shippingTrackingNumber == null) ? 0 : shippingTrackingNumber.hashCode());
+		result = prime * result + ((spokeWith == null) ? 0 : spokeWith.hashCode());
+		result = prime * result + ((timeshareDate == null) ? 0 : timeshareDate.hashCode());
+		result = prime * result + ((whatWasMisrepresented == null) ? 0 : whatWasMisrepresented.hashCode());
+		result = prime * result + ((whatWasNotDescribed == null) ? 0 : whatWasNotDescribed.hashCode());
+		result = prime * result + ((whatWasNotReceived == null) ? 0 : whatWasNotReceived.hashCode());
+		result = prime * result + ((whatWasOrdered == null) ? 0 : whatWasOrdered.hashCode());
+		result = prime * result + ((whatWasPurchased == null) ? 0 : whatWasPurchased.hashCode());
+		result = prime * result + ((whatWasReserved == null) ? 0 : whatWasReserved.hashCode());
+		result = prime * result + ((whenNegotiationsBegin == null) ? 0 : whenNegotiationsBegin.hashCode());
+		result = prime * result + ((whereIsMerchandiseLocated == null) ? 0 : whereIsMerchandiseLocated.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ConsumerDisputesType other = (ConsumerDisputesType) obj;
+		if (accountClosureDate == null) {
+			if (other.accountClosureDate != null)
+				return false;
+		} else if (!accountClosureDate.equals(other.accountClosureDate))
+			return false;
+		if (attemptToResolveExplanation == null) {
+			if (other.attemptToResolveExplanation != null)
+				return false;
+		} else if (!attemptToResolveExplanation.equals(other.attemptToResolveExplanation))
+			return false;
+		if (attemptToResolveProhLocalLaw != other.attemptToResolveProhLocalLaw)
+			return false;
+		if (attemptedReturnDate == null) {
+			if (other.attemptedReturnDate != null)
+				return false;
+		} else if (!attemptedReturnDate.equals(other.attemptedReturnDate))
+			return false;
+		if (balanceNotPaidGoodsOrServices != other.balanceNotPaidGoodsOrServices)
+			return false;
+		if (bondAuthLetterOrAdviceDate == null) {
+			if (other.bondAuthLetterOrAdviceDate != null)
+				return false;
+		} else if (!bondAuthLetterOrAdviceDate.equals(other.bondAuthLetterOrAdviceDate))
+			return false;
+		if (cancellationConfirmationInd != other.cancellationConfirmationInd)
+			return false;
+		if (cancellationContact == null) {
+			if (other.cancellationContact != null)
+				return false;
+		} else if (!cancellationContact.equals(other.cancellationContact))
+			return false;
+		if (cancellationDate == null) {
+			if (other.cancellationDate != null)
+				return false;
+		} else if (!cancellationDate.equals(other.cancellationDate))
+			return false;
+		if (cancellationMethod == null) {
+			if (other.cancellationMethod != null)
+				return false;
+		} else if (!cancellationMethod.equals(other.cancellationMethod))
+			return false;
+		if (cancellationPolicyProvidedInd != other.cancellationPolicyProvidedInd)
+			return false;
+		if (cardholderAdvisedMerchandiseCounterfeit != other.cardholderAdvisedMerchandiseCounterfeit)
+			return false;
+		if (cardholderAttemptReturnMerchandise != other.cardholderAttemptReturnMerchandise)
+			return false;
+		if (cardholderAttemptToResolve != other.cardholderAttemptToResolve)
+			return false;
+		if (cardholderCancelServices != other.cardholderCancelServices)
+			return false;
+		if (cardholderCancellationPolicyInd != other.cardholderCancellationPolicyInd)
+			return false;
+		if (cardholderDeceased == null) {
+			if (other.cardholderDeceased != null)
+				return false;
+		} else if (!cardholderDeceased.equals(other.cardholderDeceased))
+			return false;
+		if (cardholderDidNotAttemptResolveExplanation == null) {
+			if (other.cardholderDidNotAttemptResolveExplanation != null)
+				return false;
+		} else if (!cardholderDidNotAttemptResolveExplanation.equals(other.cardholderDidNotAttemptResolveExplanation))
+			return false;
+		if (cardholderFirstNotifiedIssuerDisputeDate == null) {
+			if (other.cardholderFirstNotifiedIssuerDisputeDate != null)
+				return false;
+		} else if (!cardholderFirstNotifiedIssuerDisputeDate.equals(other.cardholderFirstNotifiedIssuerDisputeDate))
+			return false;
+		if (cardholderMerchantPreviousNegotiationEvidence != other.cardholderMerchantPreviousNegotiationEvidence)
+			return false;
+		if (cardholderReservationConfirmationInd != other.cardholderReservationConfirmationInd)
+			return false;
+		if (cardholderReturnMerchandiseInd != other.cardholderReturnMerchandiseInd)
+			return false;
+		if (cardholderReturnedMerchandiseDate == null) {
+			if (other.cardholderReturnedMerchandiseDate != null)
+				return false;
+		} else if (!cardholderReturnedMerchandiseDate.equals(other.cardholderReturnedMerchandiseDate))
+			return false;
+		if (certificationGuaranteedReservation != other.certificationGuaranteedReservation)
+			return false;
+		if (chReceivedOrExpectedMerchandise == null) {
+			if (other.chReceivedOrExpectedMerchandise != null)
+				return false;
+		} else if (!chReceivedOrExpectedMerchandise.equals(other.chReceivedOrExpectedMerchandise))
+			return false;
+		if (contactMethod == null) {
+			if (other.contactMethod != null)
+				return false;
+		} else if (!contactMethod.equals(other.contactMethod))
+			return false;
+		if (contactName == null) {
+			if (other.contactName != null)
+				return false;
+		} else if (!contactName.equals(other.contactName))
+			return false;
+		if (contractDate == null) {
+			if (other.contractDate != null)
+				return false;
+		} else if (!contractDate.equals(other.contractDate))
+			return false;
+		if (creditVoucherOrTransactionReceiptDate == null) {
+			if (other.creditVoucherOrTransactionReceiptDate != null)
+				return false;
+		} else if (!creditVoucherOrTransactionReceiptDate.equals(other.creditVoucherOrTransactionReceiptDate))
+			return false;
+		if (creditVoucherTransactionReceipt != other.creditVoucherTransactionReceipt)
+			return false;
+		if (creditVoucherTransactionReceiptDated != other.creditVoucherTransactionReceiptDated)
+			return false;
+		if (damagedOrDefectiveOrderInfo == null) {
+			if (other.damagedOrDefectiveOrderInfo != null)
+				return false;
+		} else if (!damagedOrDefectiveOrderInfo.equals(other.damagedOrDefectiveOrderInfo))
+			return false;
+		if (dateOfService == null) {
+			if (other.dateOfService != null)
+				return false;
+		} else if (!dateOfService.equals(other.dateOfService))
+			return false;
+		if (deliveryAddress == null) {
+			if (other.deliveryAddress != null)
+				return false;
+		} else if (!deliveryAddress.equals(other.deliveryAddress))
+			return false;
+		if (descCounterfeitMerchandise == null) {
+			if (other.descCounterfeitMerchandise != null)
+				return false;
+		} else if (!descCounterfeitMerchandise.equals(other.descCounterfeitMerchandise))
+			return false;
+		if (descDispOfCounterfeitMerchandise == null) {
+			if (other.descDispOfCounterfeitMerchandise != null)
+				return false;
+		} else if (!descDispOfCounterfeitMerchandise.equals(other.descDispOfCounterfeitMerchandise))
+			return false;
+		if (detailsOfLocalLaw == null) {
+			if (other.detailsOfLocalLaw != null)
+				return false;
+		} else if (!detailsOfLocalLaw.equals(other.detailsOfLocalLaw))
+			return false;
+		if (didCardholderCancel != other.didCardholderCancel)
+			return false;
+		if (didCardholderCancelPriorExpectedDate != other.didCardholderCancelPriorExpectedDate)
+			return false;
+		if (didCardholderPayWorkRedone != other.didCardholderPayWorkRedone)
+			return false;
+		if (disputeDueTo != other.disputeDueTo)
+			return false;
+		if (disputeInvolveBondingAuthorityInd != other.disputeInvolveBondingAuthorityInd)
+			return false;
+		if (disputeRelateToApprovedMerchantTypes != other.disputeRelateToApprovedMerchantTypes)
+			return false;
+		if (disputeRelateToInd != other.disputeRelateToInd)
+			return false;
+		if (disputeRelateToOffpremisesDistanceSellInd != other.disputeRelateToOffpremisesDistanceSellInd)
+			return false;
+		if (disputeRelateToQualityInd != other.disputeRelateToQualityInd)
+			return false;
+		if (expectedReceiptDateTime == null) {
+			if (other.expectedReceiptDateTime != null)
+				return false;
+		} else if (!expectedReceiptDateTime.equals(other.expectedReceiptDateTime))
+			return false;
+		if (explain == null) {
+			if (other.explain != null)
+				return false;
+		} else if (!explain.equals(other.explain))
+			return false;
+		if (explainAttemptToResolveWithBondAuth == null) {
+			if (other.explainAttemptToResolveWithBondAuth != null)
+				return false;
+		} else if (!explainAttemptToResolveWithBondAuth.equals(other.explainAttemptToResolveWithBondAuth))
+			return false;
+		if (explainCardholderAttemptToResolve == null) {
+			if (other.explainCardholderAttemptToResolve != null)
+				return false;
+		} else if (!explainCardholderAttemptToResolve.equals(other.explainCardholderAttemptToResolve))
+			return false;
+		if (explainPrevNegotiation == null) {
+			if (other.explainPrevNegotiation != null)
+				return false;
+		} else if (!explainPrevNegotiation.equals(other.explainPrevNegotiation))
+			return false;
+		if (explainWhyWorkRedone == null) {
+			if (other.explainWhyWorkRedone != null)
+				return false;
+		} else if (!explainWhyWorkRedone.equals(other.explainWhyWorkRedone))
+			return false;
+		if (explanation == null) {
+			if (other.explanation != null)
+				return false;
+		} else if (!explanation.equals(other.explanation))
+			return false;
+		if (howChAttemptReturnAndDispOfMerchandise == null) {
+			if (other.howChAttemptReturnAndDispOfMerchandise != null)
+				return false;
+		} else if (!howChAttemptReturnAndDispOfMerchandise.equals(other.howChAttemptReturnAndDispOfMerchandise))
+			return false;
+		if (howMerchandiseOrServiceMisrepresented == null) {
+			if (other.howMerchandiseOrServiceMisrepresented != null)
+				return false;
+		} else if (!howMerchandiseOrServiceMisrepresented.equals(other.howMerchandiseOrServiceMisrepresented))
+			return false;
+		if (howMerchandiseReturned == null) {
+			if (other.howMerchandiseReturned != null)
+				return false;
+		} else if (!howMerchandiseReturned.equals(other.howMerchandiseReturned))
+			return false;
+		if (howTermsOfContractNotHonoredByMerchant == null) {
+			if (other.howTermsOfContractNotHonoredByMerchant != null)
+				return false;
+		} else if (!howTermsOfContractNotHonoredByMerchant.equals(other.howTermsOfContractNotHonoredByMerchant))
+			return false;
+		if (infoMerchandiseToBeCounterfeit == null) {
+			if (other.infoMerchandiseToBeCounterfeit != null)
+				return false;
+		} else if (!infoMerchandiseToBeCounterfeit.equals(other.infoMerchandiseToBeCounterfeit))
+			return false;
+		if (instructions == null) {
+			if (other.instructions != null)
+				return false;
+		} else if (!instructions.equals(other.instructions))
+			return false;
+		if (lateDeliveryWrongLocation == null) {
+			if (other.lateDeliveryWrongLocation != null)
+				return false;
+		} else if (!lateDeliveryWrongLocation.equals(other.lateDeliveryWrongLocation))
+			return false;
+		if (merchandiseDeliveredWrongLocation != other.merchandiseDeliveredWrongLocation)
+			return false;
+		if (merchandiseIdentifiedAsCounterfeit != other.merchandiseIdentifiedAsCounterfeit)
+			return false;
+		if (merchandiseOrServices != other.merchandiseOrServices)
+			return false;
+		if (merchandiseOrServicesDifferFromDescribedOnReceipt != other.merchandiseOrServicesDifferFromDescribedOnReceipt)
+			return false;
+		if (merchandiseReceivedDate == null) {
+			if (other.merchandiseReceivedDate != null)
+				return false;
+		} else if (!merchandiseReceivedDate.equals(other.merchandiseReceivedDate))
+			return false;
+		if (merchandiseReturnInstructionsInd != other.merchandiseReturnInstructionsInd)
+			return false;
+		if (merchandiseServiceReceivedDate == null) {
+			if (other.merchandiseServiceReceivedDate != null)
+				return false;
+		} else if (!merchandiseServiceReceivedDate.equals(other.merchandiseServiceReceivedDate))
+			return false;
+		if (merchandiseWasCounterfeitDate == null) {
+			if (other.merchandiseWasCounterfeitDate != null)
+				return false;
+		} else if (!merchandiseWasCounterfeitDate.equals(other.merchandiseWasCounterfeitDate))
+			return false;
+		if (merchantBillInd != other.merchantBillInd)
+			return false;
+		if (merchantDescDoNotMatchMerchandiseOrServices != other.merchantDescDoNotMatchMerchandiseOrServices)
+			return false;
+		if (merchantFacilitiesWithdrawn == null) {
+			if (other.merchantFacilitiesWithdrawn != null)
+				return false;
+		} else if (!merchantFacilitiesWithdrawn.equals(other.merchantFacilitiesWithdrawn))
+			return false;
+		if (merchantInLiquidationOrReceivershipInd != other.merchantInLiquidationOrReceivershipInd)
+			return false;
+		if (merchantReceivedReturnedMerchandiseDate == null) {
+			if (other.merchantReceivedReturnedMerchandiseDate != null)
+				return false;
+		} else if (!merchantReceivedReturnedMerchandiseDate.equals(other.merchantReceivedReturnedMerchandiseDate))
+			return false;
+		if (merchantRefuseAdvise != other.merchantRefuseAdvise)
+			return false;
+		if (merchantResponse == null) {
+			if (other.merchantResponse != null)
+				return false;
+		} else if (!merchantResponse.equals(other.merchantResponse))
+			return false;
+		if (mostRecentContactDate == null) {
+			if (other.mostRecentContactDate != null)
+				return false;
+		} else if (!mostRecentContactDate.equals(other.mostRecentContactDate))
+			return false;
+		if (nonPolicyCancellationExplanation == null) {
+			if (other.nonPolicyCancellationExplanation != null)
+				return false;
+		} else if (!nonPolicyCancellationExplanation.equals(other.nonPolicyCancellationExplanation))
+			return false;
+		if (orderDetailsNotAsDescribed == null) {
+			if (other.orderDetailsNotAsDescribed != null)
+				return false;
+		} else if (!orderDetailsNotAsDescribed.equals(other.orderDetailsNotAsDescribed))
+			return false;
+		if (originalCreditNotAccepted != other.originalCreditNotAccepted)
+			return false;
+		if (originalCreditNotAcceptedInd == null) {
+			if (other.originalCreditNotAcceptedInd != null)
+				return false;
+		} else if (!originalCreditNotAcceptedInd.equals(other.originalCreditNotAcceptedInd))
+			return false;
+		if (originalCreditNotAcceptedProhibitedLawInd == null) {
+			if (other.originalCreditNotAcceptedProhibitedLawInd != null)
+				return false;
+		} else if (!originalCreditNotAcceptedProhibitedLawInd.equals(other.originalCreditNotAcceptedProhibitedLawInd))
+			return false;
+		if (packageSignedBy == null) {
+			if (other.packageSignedBy != null)
+				return false;
+		} else if (!packageSignedBy.equals(other.packageSignedBy))
+			return false;
+		if (policyInfo == null) {
+			if (other.policyInfo != null)
+				return false;
+		} else if (!policyInfo.equals(other.policyInfo))
+			return false;
+		if (purchasedInfo == null) {
+			if (other.purchasedInfo != null)
+				return false;
+		} else if (!purchasedInfo.equals(other.purchasedInfo))
+			return false;
+		if (purchasedInfoAndQualityIssue == null) {
+			if (other.purchasedInfoAndQualityIssue != null)
+				return false;
+		} else if (!purchasedInfoAndQualityIssue.equals(other.purchasedInfoAndQualityIssue))
+			return false;
+		if (qualityIssueWith != other.qualityIssueWith)
+			return false;
+		if (recurringTransactionInd != other.recurringTransactionInd)
+			return false;
+		if (relatedToInstallmentPaymentInd != other.relatedToInstallmentPaymentInd)
+			return false;
+		if (returnAuthorizationNumber == null) {
+			if (other.returnAuthorizationNumber != null)
+				return false;
+		} else if (!returnAuthorizationNumber.equals(other.returnAuthorizationNumber))
+			return false;
+		if (returnMethod != other.returnMethod)
+			return false;
+		if (returnedMerchandiseReceivedDate == null) {
+			if (other.returnedMerchandiseReceivedDate != null)
+				return false;
+		} else if (!returnedMerchandiseReceivedDate.equals(other.returnedMerchandiseReceivedDate))
+			return false;
+		if (serviceReceivedDate == null) {
+			if (other.serviceReceivedDate != null)
+				return false;
+		} else if (!serviceReceivedDate.equals(other.serviceReceivedDate))
+			return false;
+		if (serviceType != other.serviceType)
+			return false;
+		if (shippingTrackingNumber == null) {
+			if (other.shippingTrackingNumber != null)
+				return false;
+		} else if (!shippingTrackingNumber.equals(other.shippingTrackingNumber))
+			return false;
+		if (spokeWith == null) {
+			if (other.spokeWith != null)
+				return false;
+		} else if (!spokeWith.equals(other.spokeWith))
+			return false;
+		if (timeshareDate == null) {
+			if (other.timeshareDate != null)
+				return false;
+		} else if (!timeshareDate.equals(other.timeshareDate))
+			return false;
+		if (whatWasMisrepresented != other.whatWasMisrepresented)
+			return false;
+		if (whatWasNotDescribed != other.whatWasNotDescribed)
+			return false;
+		if (whatWasNotReceived != other.whatWasNotReceived)
+			return false;
+		if (whatWasOrdered == null) {
+			if (other.whatWasOrdered != null)
+				return false;
+		} else if (!whatWasOrdered.equals(other.whatWasOrdered))
+			return false;
+		if (whatWasPurchased == null) {
+			if (other.whatWasPurchased != null)
+				return false;
+		} else if (!whatWasPurchased.equals(other.whatWasPurchased))
+			return false;
+		if (whatWasReserved == null) {
+			if (other.whatWasReserved != null)
+				return false;
+		} else if (!whatWasReserved.equals(other.whatWasReserved))
+			return false;
+		if (whenNegotiationsBegin == null) {
+			if (other.whenNegotiationsBegin != null)
+				return false;
+		} else if (!whenNegotiationsBegin.equals(other.whenNegotiationsBegin))
+			return false;
+		if (whereIsMerchandiseLocated == null) {
+			if (other.whereIsMerchandiseLocated != null)
+				return false;
+		} else if (!whereIsMerchandiseLocated.equals(other.whereIsMerchandiseLocated))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "ConsumerDisputesType [disputeDueTo=" + disputeDueTo + ", recurringTransactionInd="
+				+ recurringTransactionInd + ", relatedToInstallmentPaymentInd=" + relatedToInstallmentPaymentInd
+				+ ", accountClosureDate=" + accountClosureDate + ", merchandiseOrServices=" + merchandiseOrServices
+				+ ", cardholderReturnMerchandiseInd=" + cardholderReturnMerchandiseInd + ", merchantRefuseAdvise="
+				+ merchantRefuseAdvise + ", whatWasPurchased=" + whatWasPurchased + ", chReceivedOrExpectedMerchandise="
+				+ chReceivedOrExpectedMerchandise + ", merchandiseReceivedDate=" + merchandiseReceivedDate
+				+ ", howMerchandiseOrServiceMisrepresented=" + howMerchandiseOrServiceMisrepresented
+				+ ", disputeRelateToApprovedMerchantTypes=" + disputeRelateToApprovedMerchantTypes
+				+ ", didCardholderCancel=" + didCardholderCancel + ", cancellationDate=" + cancellationDate
+				+ ", cancellationMethod=" + cancellationMethod + ", cardholderFirstNotifiedIssuerDisputeDate="
+				+ cardholderFirstNotifiedIssuerDisputeDate + ", cardholderAttemptToResolve="
+				+ cardholderAttemptToResolve + ", attemptToResolveExplanation=" + attemptToResolveExplanation
+				+ ", cardholderDidNotAttemptResolveExplanation=" + cardholderDidNotAttemptResolveExplanation
+				+ ", detailsOfLocalLaw=" + detailsOfLocalLaw + ", cardholderCancellationPolicyInd="
+				+ cardholderCancellationPolicyInd + ", nonPolicyCancellationExplanation="
+				+ nonPolicyCancellationExplanation + ", whatWasMisrepresented=" + whatWasMisrepresented
+				+ ", mostRecentContactDate=" + mostRecentContactDate + ", contactName=" + contactName
+				+ ", contactMethod=" + contactMethod + ", merchantResponse=" + merchantResponse + ", returnMethod="
+				+ returnMethod + ", returnAuthorizationNumber=" + returnAuthorizationNumber
+				+ ", shippingTrackingNumber=" + shippingTrackingNumber + ", packageSignedBy=" + packageSignedBy
+				+ ", deliveryAddress=" + deliveryAddress + ", merchandiseReturnInstructionsInd="
+				+ merchandiseReturnInstructionsInd + ", instructions=" + instructions + ", whatWasReserved="
+				+ whatWasReserved + ", cardholderMerchantPreviousNegotiationEvidence="
+				+ cardholderMerchantPreviousNegotiationEvidence + ", serviceType=" + serviceType + ", spokeWith="
+				+ spokeWith + ", cancellationPolicyProvidedInd=" + cancellationPolicyProvidedInd + ", policyInfo="
+				+ policyInfo + ", cancellationConfirmationInd=" + cancellationConfirmationInd + ", merchantBillInd="
+				+ merchantBillInd + ", cardholderReservationConfirmationInd=" + cardholderReservationConfirmationInd
+				+ ", timeshareDate=" + timeshareDate + ", whatWasOrdered=" + whatWasOrdered
+				+ ", cardholderAdvisedMerchandiseCounterfeit=" + cardholderAdvisedMerchandiseCounterfeit
+				+ ", whereIsMerchandiseLocated=" + whereIsMerchandiseLocated + ", originalCreditNotAcceptedInd="
+				+ originalCreditNotAcceptedInd + ", originalCreditNotAcceptedProhibitedLawInd="
+				+ originalCreditNotAcceptedProhibitedLawInd + ", explain=" + explain
+				+ ", creditVoucherTransactionReceipt=" + creditVoucherTransactionReceipt
+				+ ", creditVoucherOrTransactionReceiptDate=" + creditVoucherOrTransactionReceiptDate
+				+ ", whatWasNotReceived=" + whatWasNotReceived + ", disputeRelateToQualityInd="
+				+ disputeRelateToQualityInd + ", disputeInvolveBondingAuthorityInd=" + disputeInvolveBondingAuthorityInd
+				+ ", purchasedInfo=" + purchasedInfo + ", expectedReceiptDateTime=" + expectedReceiptDateTime
+				+ ", didCardholderCancelPriorExpectedDate=" + didCardholderCancelPriorExpectedDate
+				+ ", cancellationContact=" + cancellationContact + ", balanceNotPaidGoodsOrServices="
+				+ balanceNotPaidGoodsOrServices + ", explainCardholderAttemptToResolve="
+				+ explainCardholderAttemptToResolve + ", merchandiseDeliveredWrongLocation="
+				+ merchandiseDeliveredWrongLocation + ", lateDeliveryWrongLocation=" + lateDeliveryWrongLocation
+				+ ", cardholderAttemptReturnMerchandise=" + cardholderAttemptReturnMerchandise
+				+ ", attemptedReturnDate=" + attemptedReturnDate + ", damagedOrDefectiveOrderInfo="
+				+ damagedOrDefectiveOrderInfo + ", orderDetailsNotAsDescribed=" + orderDetailsNotAsDescribed
+				+ ", merchantDescDoNotMatchMerchandiseOrServices=" + merchantDescDoNotMatchMerchandiseOrServices
+				+ ", merchandiseOrServicesDifferFromDescribedOnReceipt="
+				+ merchandiseOrServicesDifferFromDescribedOnReceipt + ", explanation=" + explanation
+				+ ", whatWasNotDescribed=" + whatWasNotDescribed + ", cardholderCancelServices="
+				+ cardholderCancelServices + ", qualityIssueWith=" + qualityIssueWith
+				+ ", purchasedInfoAndQualityIssue=" + purchasedInfoAndQualityIssue + ", merchandiseServiceReceivedDate="
+				+ merchandiseServiceReceivedDate + ", didCardholderPayWorkRedone=" + didCardholderPayWorkRedone
+				+ ", explainWhyWorkRedone=" + explainWhyWorkRedone + ", attemptToResolveProhLocalLaw="
+				+ attemptToResolveProhLocalLaw + ", returnedMerchandiseReceivedDate=" + returnedMerchandiseReceivedDate
+				+ ", howMerchandiseReturned=" + howMerchandiseReturned + ", howChAttemptReturnAndDispOfMerchandise="
+				+ howChAttemptReturnAndDispOfMerchandise + ", merchandiseWasCounterfeitDate="
+				+ merchandiseWasCounterfeitDate + ", infoMerchandiseToBeCounterfeit=" + infoMerchandiseToBeCounterfeit
+				+ ", whenNegotiationsBegin=" + whenNegotiationsBegin + ", explainPrevNegotiation="
+				+ explainPrevNegotiation + ", merchantReceivedReturnedMerchandiseDate="
+				+ merchantReceivedReturnedMerchandiseDate + ", merchantFacilitiesWithdrawn="
+				+ merchantFacilitiesWithdrawn + ", cardholderDeceased=" + cardholderDeceased
+				+ ", disputeRelateToOffpremisesDistanceSellInd=" + disputeRelateToOffpremisesDistanceSellInd
+				+ ", disputeRelateToInd=" + disputeRelateToInd + ", contractDate=" + contractDate
+				+ ", merchantInLiquidationOrReceivershipInd=" + merchantInLiquidationOrReceivershipInd
+				+ ", explainAttemptToResolveWithBondAuth=" + explainAttemptToResolveWithBondAuth
+				+ ", bondAuthLetterOrAdviceDate=" + bondAuthLetterOrAdviceDate + ", dateOfService=" + dateOfService
+				+ ", descCounterfeitMerchandise=" + descCounterfeitMerchandise + ", descDispOfCounterfeitMerchandise="
+				+ descDispOfCounterfeitMerchandise + ", cardholderReturnedMerchandiseDate="
+				+ cardholderReturnedMerchandiseDate + ", merchandiseIdentifiedAsCounterfeit="
+				+ merchandiseIdentifiedAsCounterfeit + ", originalCreditNotAccepted=" + originalCreditNotAccepted
+				+ ", creditVoucherTransactionReceiptDated=" + creditVoucherTransactionReceiptDated
+				+ ", serviceReceivedDate=" + serviceReceivedDate + ", certificationGuaranteedReservation="
+				+ certificationGuaranteedReservation + ", howTermsOfContractNotHonoredByMerchant="
+				+ howTermsOfContractNotHonoredByMerchant + "]";
+	}
 
 }

@@ -8,6 +8,8 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DisputeCardholderInfoType extends CardholderDisputeInfoType {
+public class DisputeCardholderInfoType extends CardholderDisputeInfoType implements Serializable {
 
-    @JsonProperty("CardholderPrefix")
+	private static final long serialVersionUID = 2835601533474824177L;
+	
+	@JsonProperty("CardholderPrefix")
     protected String cardholderPrefix;
     @JsonProperty("CardholderLastName")
     protected String cardholderLastName;
@@ -147,5 +151,63 @@ public class DisputeCardholderInfoType extends CardholderDisputeInfoType {
     public void setCardholderSuffix(String value) {
         this.cardholderSuffix = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address2 == null) ? 0 : address2.hashCode());
+		result = prime * result + ((cardholderLastName == null) ? 0 : cardholderLastName.hashCode());
+		result = prime * result + ((cardholderMiddleInitial == null) ? 0 : cardholderMiddleInitial.hashCode());
+		result = prime * result + ((cardholderPrefix == null) ? 0 : cardholderPrefix.hashCode());
+		result = prime * result + ((cardholderSuffix == null) ? 0 : cardholderSuffix.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DisputeCardholderInfoType other = (DisputeCardholderInfoType) obj;
+		if (address2 == null) {
+			if (other.address2 != null)
+				return false;
+		} else if (!address2.equals(other.address2))
+			return false;
+		if (cardholderLastName == null) {
+			if (other.cardholderLastName != null)
+				return false;
+		} else if (!cardholderLastName.equals(other.cardholderLastName))
+			return false;
+		if (cardholderMiddleInitial == null) {
+			if (other.cardholderMiddleInitial != null)
+				return false;
+		} else if (!cardholderMiddleInitial.equals(other.cardholderMiddleInitial))
+			return false;
+		if (cardholderPrefix == null) {
+			if (other.cardholderPrefix != null)
+				return false;
+		} else if (!cardholderPrefix.equals(other.cardholderPrefix))
+			return false;
+		if (cardholderSuffix == null) {
+			if (other.cardholderSuffix != null)
+				return false;
+		} else if (!cardholderSuffix.equals(other.cardholderSuffix))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DisputeCardholderInfoType [cardholderPrefix=" + cardholderPrefix + ", cardholderLastName="
+				+ cardholderLastName + ", cardholderMiddleInitial=" + cardholderMiddleInitial + ", address2=" + address2
+				+ ", cardholderSuffix=" + cardholderSuffix + "]";
+	}
+    
+    
 
 }

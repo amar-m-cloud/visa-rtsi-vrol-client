@@ -20,6 +20,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.cxf.configuration.jsse.TLSClientParameters;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.cxf.jaxrs.client.WebClient;
+import org.apache.cxf.jaxrs.provider.MultipartProvider;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
 
@@ -28,16 +29,16 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 import io.github.brendonfm.visa.util.LoggingUtils;
 
-public class VisaClientFactory {
+public class VisaClientFactoryMultipart {
 
 	public static final List<Object> providers = new ArrayList<>();
 	static {
 		providers.add(new JacksonJaxbJsonProvider());
 		providers.add(new JacksonJsonProvider());
-		providers.add(new org.apache.cxf.jaxrs.provider.MultipartProvider());
+		providers.add(new MultipartProvider());
 	}
 
-	public static Visa create(final String baseUrl,
+	public static VisaMultipart create(final String baseUrl,
 			final Integer connectionTimeoutLimit,
 			final String clientKeyStorePath,
 			final String sslLogPath,
@@ -52,10 +53,10 @@ public class VisaClientFactory {
 			CertificateException,
 			FileNotFoundException,
 			IOException {
-		LoggingUtils.debug(VisaClientFactory.class, "create", baseUrl);
+		LoggingUtils.debug(VisaClientFactoryMultipart.class, "create", baseUrl);
 
-		final Visa proxy = JAXRSClientFactory.create(baseUrl, Visa.class, providers);
-		WebClient.client(proxy).accept(MediaType.APPLICATION_JSON_TYPE).type(MediaType.APPLICATION_JSON_TYPE);
+		final VisaMultipart proxy = JAXRSClientFactory.create(baseUrl, VisaMultipart.class, providers);
+		WebClient.client(proxy).accept(MediaType.APPLICATION_JSON_TYPE, MediaType.MULTIPART_FORM_DATA_TYPE).type(MediaType.MULTIPART_FORM_DATA_TYPE);
 
 		final HTTPConduit http = (HTTPConduit) WebClient.getConfig(proxy).getConduit();
 		final HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
@@ -84,7 +85,7 @@ public class VisaClientFactory {
 			http.setTlsClientParameters(tcp);
 		}
 
-		LoggingUtils.debug(VisaClientFactory.class, "create", proxy);
+		LoggingUtils.debug(VisaClientFactoryMultipart.class, "create", proxy);
 		return proxy;
 	}
 

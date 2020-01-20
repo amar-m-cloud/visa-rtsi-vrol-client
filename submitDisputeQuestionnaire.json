@@ -1,0 +1,19 @@
+{
+    "RequestHeader":{
+        "MemberRole":"I"
+        },    
+    "RequestData":{
+            "DisputeId":1180357,
+            "VisaCaseNumber":1051113439,
+           
+            "DisputeFraudInfo":{
+                    "FraudType":0
+            },
+            "ExplanationOfCreditPresented": "a",
+            "Fraud":{
+            "CardholderDeniesAuthorizingInd":true
+            },
+            "Action":"Submit",
+            "IsParcelado":"N"
+    }
+}

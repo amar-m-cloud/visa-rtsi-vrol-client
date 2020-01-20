@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -21,9 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DisputeFraudType {
+public class DisputeFraudType implements Serializable {
 
-    @JsonProperty("CardStatusWhenTransactionHappened")
+	private static final long serialVersionUID = -3051062989675261106L;
+	
+	@JsonProperty("CardStatusWhenTransactionHappened")
     protected CardStatusWhenTransactionHappenedType cardStatusWhenTransactionHappened;
     @JsonProperty("FraudOtherExplanation")
     protected String fraudOtherExplanation;
@@ -287,5 +290,94 @@ public class DisputeFraudType {
     public void setNameOfIssuerRepresentative(String value) {
         this.nameOfIssuerRepresentative = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((cardStatusWhenTransactionHappened == null) ? 0 : cardStatusWhenTransactionHappened.hashCode());
+		result = prime * result
+				+ ((cardholderDeniesAuthorizingInd == null) ? 0 : cardholderDeniesAuthorizingInd.hashCode());
+		result = prime * result + ((cardholderOnlineBankingCertificationObtainedInd == null) ? 0
+				: cardholderOnlineBankingCertificationObtainedInd.hashCode());
+		result = prime * result + ((cardholderTeleBankingCertificationObtainedInd == null) ? 0
+				: cardholderTeleBankingCertificationObtainedInd.hashCode());
+		result = prime * result + ((chipOnCard == null) ? 0 : chipOnCard.hashCode());
+		result = prime * result + ((dateAndTimeOfCall == null) ? 0 : dateAndTimeOfCall.hashCode());
+		result = prime * result + ((fraudOtherExplanation == null) ? 0 : fraudOtherExplanation.hashCode());
+		result = prime * result + ((nameOfIssuerRepresentative == null) ? 0 : nameOfIssuerRepresentative.hashCode());
+		result = prime * result + ((pinPreferringCard == null) ? 0 : pinPreferringCard.hashCode());
+		result = prime * result + ((uniqueIdentity == null) ? 0 : uniqueIdentity.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DisputeFraudType other = (DisputeFraudType) obj;
+		if (cardStatusWhenTransactionHappened != other.cardStatusWhenTransactionHappened)
+			return false;
+		if (cardholderDeniesAuthorizingInd == null) {
+			if (other.cardholderDeniesAuthorizingInd != null)
+				return false;
+		} else if (!cardholderDeniesAuthorizingInd.equals(other.cardholderDeniesAuthorizingInd))
+			return false;
+		if (cardholderOnlineBankingCertificationObtainedInd == null) {
+			if (other.cardholderOnlineBankingCertificationObtainedInd != null)
+				return false;
+		} else if (!cardholderOnlineBankingCertificationObtainedInd
+				.equals(other.cardholderOnlineBankingCertificationObtainedInd))
+			return false;
+		if (cardholderTeleBankingCertificationObtainedInd == null) {
+			if (other.cardholderTeleBankingCertificationObtainedInd != null)
+				return false;
+		} else if (!cardholderTeleBankingCertificationObtainedInd
+				.equals(other.cardholderTeleBankingCertificationObtainedInd))
+			return false;
+		if (chipOnCard != other.chipOnCard)
+			return false;
+		if (dateAndTimeOfCall == null) {
+			if (other.dateAndTimeOfCall != null)
+				return false;
+		} else if (!dateAndTimeOfCall.equals(other.dateAndTimeOfCall))
+			return false;
+		if (fraudOtherExplanation == null) {
+			if (other.fraudOtherExplanation != null)
+				return false;
+		} else if (!fraudOtherExplanation.equals(other.fraudOtherExplanation))
+			return false;
+		if (nameOfIssuerRepresentative == null) {
+			if (other.nameOfIssuerRepresentative != null)
+				return false;
+		} else if (!nameOfIssuerRepresentative.equals(other.nameOfIssuerRepresentative))
+			return false;
+		if (pinPreferringCard != other.pinPreferringCard)
+			return false;
+		if (uniqueIdentity == null) {
+			if (other.uniqueIdentity != null)
+				return false;
+		} else if (!uniqueIdentity.equals(other.uniqueIdentity))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DisputeFraudType [cardStatusWhenTransactionHappened=" + cardStatusWhenTransactionHappened
+				+ ", fraudOtherExplanation=" + fraudOtherExplanation + ", pinPreferringCard=" + pinPreferringCard
+				+ ", chipOnCard=" + chipOnCard + ", cardholderDeniesAuthorizingInd=" + cardholderDeniesAuthorizingInd
+				+ ", cardholderOnlineBankingCertificationObtainedInd=" + cardholderOnlineBankingCertificationObtainedInd
+				+ ", uniqueIdentity=" + uniqueIdentity + ", cardholderTeleBankingCertificationObtainedInd="
+				+ cardholderTeleBankingCertificationObtainedInd + ", dateAndTimeOfCall=" + dateAndTimeOfCall
+				+ ", nameOfIssuerRepresentative=" + nameOfIssuerRepresentative + "]";
+	}
+    
+    
 
 }

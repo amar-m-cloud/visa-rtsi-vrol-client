@@ -8,6 +8,7 @@
 
 package io.github.brendonfm.visa.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -21,9 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DisputeFraudInfoType {
+public class DisputeFraudInfoType implements Serializable {
 
-    @JsonProperty("MailDate")
+	private static final long serialVersionUID = -1244848450469795384L;
+	
+	@JsonProperty("MailDate")
     @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss",
 	shape = JsonFormat.Shape.STRING,
 	locale = "pt-BR",
@@ -183,5 +186,67 @@ public class DisputeFraudInfoType {
     public void setFraudType(String value) {
         this.fraudType = value;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((fraudType == null) ? 0 : fraudType.hashCode());
+		result = prime * result + ((mailCity == null) ? 0 : mailCity.hashCode());
+		result = prime * result + ((mailDate == null) ? 0 : mailDate.hashCode());
+		result = prime * result + ((mailPostalCode == null) ? 0 : mailPostalCode.hashCode());
+		result = prime * result + ((mailStateCode == null) ? 0 : mailStateCode.hashCode());
+		result = prime * result + ((validFrom == null) ? 0 : validFrom.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DisputeFraudInfoType other = (DisputeFraudInfoType) obj;
+		if (fraudType == null) {
+			if (other.fraudType != null)
+				return false;
+		} else if (!fraudType.equals(other.fraudType))
+			return false;
+		if (mailCity == null) {
+			if (other.mailCity != null)
+				return false;
+		} else if (!mailCity.equals(other.mailCity))
+			return false;
+		if (mailDate == null) {
+			if (other.mailDate != null)
+				return false;
+		} else if (!mailDate.equals(other.mailDate))
+			return false;
+		if (mailPostalCode == null) {
+			if (other.mailPostalCode != null)
+				return false;
+		} else if (!mailPostalCode.equals(other.mailPostalCode))
+			return false;
+		if (mailStateCode == null) {
+			if (other.mailStateCode != null)
+				return false;
+		} else if (!mailStateCode.equals(other.mailStateCode))
+			return false;
+		if (validFrom == null) {
+			if (other.validFrom != null)
+				return false;
+		} else if (!validFrom.equals(other.validFrom))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DisputeFraudInfoType [mailDate=" + mailDate + ", mailCity=" + mailCity + ", mailStateCode="
+				+ mailStateCode + ", validFrom=" + validFrom + ", mailPostalCode=" + mailPostalCode + ", fraudType="
+				+ fraudType + "]";
+	}
 
 }
